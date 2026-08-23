@@ -1,2 +1,5 @@
 # defter
-Kişisel site — defter, yazılar, portföy. yunusemredurak.com.tr
+
+Kişisel site: [yunusemredurak.com.tr](https://yunusemredurak.com.tr)
+
+Statik HTML. GitHub Pages, `main` dalı, kök dizin.

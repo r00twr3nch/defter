@@ -1,0 +1,186 @@
+:root {
+  --bg: #0c0c0b;
+  --ink: #efe8dc;
+  --mute: #b7aea0;
+  --brass: #b08a5a;
+  --line: rgba(176, 138, 90, 0.28);
+  --serif: "Newsreader", Georgia, serif;
+  --sans: "Source Sans 3", sans-serif;
+  --hand: "Caveat", cursive;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); color: var(--ink); }
+body {
+  font-family: var(--serif);
+  font-optical-sizing: auto;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+a:hover { color: var(--brass); }
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem 7vw;
+  position: relative;
+  z-index: 2;
+}
+.mark {
+  font-family: var(--sans);
+  letter-spacing: 0.18em;
+  text-transform: lowercase;
+  font-size: 0.82rem;
+  color: var(--brass);
+}
+nav { display: flex; gap: 1.4rem; font-family: var(--sans); font-size: 0.92rem; }
+nav a { color: var(--mute); }
+nav a.on { color: var(--ink); box-shadow: 0 1px 0 var(--brass); }
+
+.hero, .page { position: relative; z-index: 2; padding: 7vh 7vw 4rem; }
+.kicker {
+  font-family: var(--sans);
+  letter-spacing: 0.14em;
+  text-transform: lowercase;
+  color: var(--brass);
+  font-size: 0.82rem;
+  margin: 0 0 0.8rem;
+}
+h1 {
+  font-weight: 500;
+  font-size: clamp(2.6rem, 7vw, 5.2rem);
+  line-height: 1.05;
+  margin: 0 0 1rem;
+}
+.lede {
+  max-width: 28rem;
+  font-size: 1.35rem;
+  line-height: 1.45;
+  color: var(--mute);
+}
+.lede.short { font-size: 1.15rem; }
+.actions { display: flex; gap: 0.8rem; margin-top: 1.6rem; }
+.btn {
+  font-family: var(--sans);
+  border: 1px solid var(--brass);
+  padding: 0.55rem 1rem;
+  border-radius: 2px;
+  display: inline-block;
+}
+.btn.ghost { border-color: var(--line); color: var(--mute); }
+
+.split {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  padding: 0 7vw 4rem;
+}
+.hand { font-family: var(--hand); font-weight: 500; }
+h2.hand { font-size: 2.2rem; margin: 0 0 1rem; }
+.notes, .essays { list-style: none; padding: 0; margin: 0; }
+.notes li a, .essays li a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.notes .hand { font-size: 1.55rem; }
+time, .essays em { color: var(--mute); font-style: italic; }
+
+.work-row {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 0 7vw 5rem;
+}
+.work-row.stacked { padding: 0; }
+.card {
+  border: 1px solid var(--line);
+  padding: 1.2rem 1.1rem 1.3rem;
+  min-height: 8rem;
+}
+.card h3 { margin: 0 0 0.4rem; font-weight: 500; }
+.card p { margin: 0; color: var(--mute); }
+
+.page.narrow { max-width: 40rem; }
+.entry { padding: 1.2rem 0 1.6rem; border-bottom: 1px solid var(--line); }
+blockquote.hand {
+  font-size: 1.7rem;
+  line-height: 1.35;
+  color: var(--brass);
+  border: 0;
+  margin: 1.6rem 0;
+  padding: 0;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem 7vw 2.4rem;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--mute);
+  position: relative;
+  z-index: 2;
+}
+
+.lamp {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+.lamp-head {
+  position: absolute;
+  top: 4.5rem;
+  right: 8vw;
+  width: 26px;
+  height: 18px;
+  border-radius: 10px 10px 4px 4px;
+  background: linear-gradient(180deg, #c4a06a, #7a5a32);
+  box-shadow: 0 0 18px rgba(201, 160, 90, 0.45);
+}
+.beam {
+  position: absolute;
+  top: 5.4rem;
+  right: calc(8vw - 8px);
+  width: min(52vw, 560px);
+  height: 70vh;
+  background: linear-gradient(210deg, rgba(212, 176, 110, 0.22), rgba(212, 176, 110, 0.06) 42%, transparent 70%);
+  clip-path: polygon(88% 0, 100% 0, 42% 100%, 0 100%);
+  filter: blur(8px);
+  transform-origin: 92% 0;
+  animation: sweep 16s ease-in-out infinite;
+}
+.lamp.dim .beam { opacity: 0.55; }
+.dust {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(239, 232, 220, 0.35) 1px, transparent 1.6px);
+  background-size: 180px 140px;
+  opacity: 0.18;
+  animation: float 22s linear infinite;
+  mask-image: linear-gradient(210deg, transparent 10%, black 40%, transparent 80%);
+}
+@keyframes sweep {
+  0%, 100% { transform: rotate(0deg); opacity: 0.42; }
+  50% { transform: rotate(-3deg); opacity: 0.7; }
+}
+@keyframes float {
+  from { transform: translateY(12px); }
+  to { transform: translateY(-40px); }
+}
+
+@media (max-width: 800px) {
+  .split, .work-row { grid-template-columns: 1fr; }
+  .top { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
+  .lamp-head { right: 1.2rem; }
+}
