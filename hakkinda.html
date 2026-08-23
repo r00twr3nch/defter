@@ -5,68 +5,72 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hakkında — Yunus Emre Durak</title>
   <meta name="description" content="Yazılım mühendisliği ve siber güvenlik. Yaşar Üniversitesi.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='28' fill='none' stroke='%23c4a06a' stroke-width='3'/><path d='M22 40c8-16 22-16 22-4' fill='none' stroke='%23c4a06a' stroke-width='3'/></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='28' fill='none' stroke='%23d4b07a' stroke-width='3'/><path d='M22 40c8-16 22-16 22-4' fill='none' stroke='%23d4b07a' stroke-width='3'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Source+Sans+3:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <script src="lamp-0.js"></script>
-  <script src="lamp-1.js"></script>
-  <script src="lamp-2.js"></script>
-  <script src="lamp.js"></script>
 </head>
 <body data-page="hakkinda">
   <div class="grain"></div>
   <div class="vignette"></div>
   <canvas id="dust"></canvas>
-  <img class="inner-lamp" data-lamp alt="" width="557" height="820">
-  <header class="top">
-    <a class="mark" href="index.html" aria-label="ana sayfa">☾</a>
-    <nav>
-      <a href="index.html">Ana</a>
-      <a href="defter.html">Defter</a>
-      <a href="yazilar.html">Yazılar</a>
-      <a href="isler.html">İşler</a>
-      <a href="hakkinda.html" class="on">Hakkında</a>
-    </nav>
-  </header>
+  <div class="stage" aria-hidden="true">
+    <img class="stage-img" src="assets/hero.jpg" alt="" width="1792" height="1008">
+    <div class="stage-shade"></div>
+  </div>
+  <div class="glow" aria-hidden="true"></div>
 
-  <main class="page narrow">
-    <p class="section-label">Hakkında</p>
-    <h1>Yol</h1>
-    <p class="lede">Yazılım mühendisliği ve siber güvenlik. Yaşar Üniversitesi.</p>
-    <ul class="timeline">
-      <li>
-        <span class="when">Haz 2025 — Ağu 2025</span>
-        <strong>Software Engineering Intern</strong>
-        Tostbang Teknoloji, Diyarbakır. API, veritabanı, kod inceleme.
-      </li>
-      <li>
-        <span class="when">Eyl 2021 — devam</span>
-        <strong>Software Engineering (English)</strong>
-        Yaşar Üniversitesi.
-      </li>
-      <li>
-        <span class="when">Haz 2021 — Ağu 2021</span>
-        <strong>IT / ERP Support</strong>
-        EFG Energy.
-      </li>
-      <li>
-        <span class="when">2020 — 2022</span>
-        <strong>Information Security Intern</strong>
-        Normsight Cyber Security.
-      </li>
-    </ul>
-    <div class="chips" style="margin-top:1.5rem">
-      <span>Linux</span><span>Python</span><span>C / C++ / C#</span>
-      <span>SIEM</span><span>Pentest</span><span>ASP.NET</span>
-    </div>
-    <p style="margin-top:1.7rem"><a class="btn" href="https://github.com/r00twr3nch">GitHub</a></p>
-  </main>
-  <footer>
-    <span>© Yunus Emre Durak</span>
-    <a href="https://github.com/r00twr3nch">github.com/r00twr3nch</a>
-  </footer>
+  <div class="shell">
+    <header class="top">
+      <a class="mark" href="index.html" aria-label="ana sayfa">☾</a>
+      <nav>
+        <a href="index.html">Ana</a>
+        <a href="defter.html">Defter</a>
+        <a href="yazilar.html">Yazılar</a>
+        <a href="isler.html">İşler</a>
+        <a href="hakkinda.html" class="on">Hakkında</a>
+      </nav>
+    </header>
+
+    <main class="page narrow">
+      <p class="section-label">Hakkında</p>
+      <h1>Yol</h1>
+      <p class="lede">Yazılım mühendisliği ve siber güvenlik. Yaşar Üniversitesi.</p>
+      <p class="prose" style="margin-top:1.4rem;max-width:36rem">Gece çalışan biri. Kod, paket, defter. İzmir’den; işi ölçülü tutmayı, gürültüyü elemeği, doğru olanı sessizce inşa etmeyi tercih eder.</p>
+      <ul class="timeline">
+        <li>
+          <span class="when">Haz 2025 — Ağu 2025</span>
+          <strong>Software Engineering Intern</strong>
+          Tostbang Teknoloji, Diyarbakır. API, veritabanı, kod inceleme.
+        </li>
+        <li>
+          <span class="when">Eyl 2021 — devam</span>
+          <strong>Software Engineering (English)</strong>
+          Yaşar Üniversitesi.
+        </li>
+        <li>
+          <span class="when">Haz 2021 — Ağu 2021</span>
+          <strong>IT / ERP Support</strong>
+          EFG Energy.
+        </li>
+        <li>
+          <span class="when">2020 — 2022</span>
+          <strong>Information Security Intern</strong>
+          Normsight Cyber Security.
+        </li>
+      </ul>
+      <div class="chips" style="margin-top:1.6rem">
+        <span>Linux</span><span>Python</span><span>C / C++ / C#</span>
+        <span>TypeScript</span><span>SIEM</span><span>Pentest</span><span>ASP.NET</span>
+      </div>
+      <p style="margin-top:1.8rem"><a class="btn" href="https://github.com/r00twr3nch">GitHub</a></p>
+    </main>
+    <footer>
+      <span>© Yunus Emre Durak</span>
+      <a href="https://github.com/r00twr3nch">github.com/r00twr3nch</a>
+    </footer>
+  </div>
   <script src="site.js"></script>
 </body>
 </html>

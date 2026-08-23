@@ -7,74 +7,68 @@
   <meta name="description" content="Yazılım, siber, defter. Gece vakti laboratuvar notları ve uhrevi denemeler.">
   <meta property="og:title" content="Yunus Emre Durak">
   <meta property="og:description" content="Karanlıkta ölçülü çalışmak, doğru olanı sessizce inşa etmektir.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='28' fill='none' stroke='%23c4a06a' stroke-width='3'/><path d='M22 40c8-16 22-16 22-4' fill='none' stroke='%23c4a06a' stroke-width='3'/></svg>">
+  <link rel="preload" as="image" href="assets/hero.jpg">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='28' fill='none' stroke='%23d4b07a' stroke-width='3'/><path d='M22 40c8-16 22-16 22-4' fill='none' stroke='%23d4b07a' stroke-width='3'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Source+Sans+3:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <script src="lamp-0.js"></script>
-  <script src="lamp-1.js"></script>
-  <script src="lamp-2.js"></script>
-  <script src="lamp.js"></script>
 </head>
-<body data-page="ana">
+<body class="home" data-page="ana">
   <div class="grain"></div>
   <div class="vignette"></div>
   <canvas id="dust"></canvas>
-  <header class="top">
-    <a class="mark" href="index.html" aria-label="ana sayfa">☾</a>
-    <nav>
-      <a href="index.html" class="on">Ana</a>
-      <a href="defter.html">Defter</a>
-      <a href="yazilar.html">Yazılar</a>
-      <a href="isler.html">İşler</a>
-      <a href="hakkinda.html">Hakkında</a>
-    </nav>
-  </header>
+  <div class="stage" aria-hidden="true">
+    <picture>
+      <source srcset="assets/hero.webp" type="image/webp">
+      <img class="stage-img" src="assets/hero.jpg" alt="" width="1792" height="1008" fetchpriority="high">
+    </picture>
+    <div class="stage-shade"></div>
+  </div>
+  <div class="glow" aria-hidden="true"></div>
 
-  <section class="hero">
-    <div class="hero-copy">
+  <div class="shell">
+    <header class="top">
+      <a class="mark" href="index.html" aria-label="ana sayfa">☾</a>
+      <nav>
+        <a href="index.html" class="on">Ana</a>
+        <a href="defter.html">Defter</a>
+        <a href="yazilar.html">Yazılar</a>
+        <a href="isler.html">İşler</a>
+        <a href="hakkinda.html">Hakkında</a>
+      </nav>
+    </header>
+
+    <section class="hero-copy">
       <p class="kicker">yazılım · siber · defter</p>
       <h1>Yunus Emre Durak</h1>
       <p class="lede">Karanlıkta ölçülü çalışmak, doğru olanı sessizce inşa etmektir.</p>
       <p class="scribble">gece vakti.</p>
-      <div class="actions">
-        <a class="btn" href="defter.html">Deftere göz at →</a>
-        <a class="btn ghost" href="yazilar.html">Yazılarımı oku</a>
-      </div>
-    </div>
-    <div class="lamp-stage" aria-hidden="true">
-      <div class="beam-origin">
-        <div class="beam haze"></div>
-        <div class="beam cone"></div>
-        <div class="beam core"></div>
-      </div>
-      <img class="lamp-img" data-lamp alt="" width="557" height="820">
-    </div>
-  </section>
+    </section>
 
-  <section class="cards">
-    <a class="card hand-title" href="defter.html">
-      <h2>Defter</h2>
-      <p>Laboratuvar notları, araçlar, kısa gözlemler.</p>
-      <span class="more">AÇ →</span>
-    </a>
-    <a class="card" href="yazilar.html">
-      <h2>Yazılar</h2>
-      <p>Uzun form denemeler; edebi ve uhrevi.</p>
-      <span class="more">OKU →</span>
-    </a>
-    <a class="card" href="isler.html">
-      <h2>İşler</h2>
-      <p>Seçilmiş işler, stajlar, yazılım ve siber.</p>
-      <span class="more">GÖR →</span>
-    </a>
-  </section>
+    <section class="cards">
+      <a class="card hand-title" href="defter.html">
+        <h2>Defter</h2>
+        <p>Laboratuvar notları, araçlar, kısa gözlemler.</p>
+        <span class="more">AÇ →</span>
+      </a>
+      <a class="card" href="yazilar.html">
+        <h2>Yazılar</h2>
+        <p>Uzun form denemeler; edebi ve uhrevi.</p>
+        <span class="more">OKU →</span>
+      </a>
+      <a class="card" href="isler.html">
+        <h2>İşler</h2>
+        <p>Seçilmiş işler, stajlar, yazılım ve siber.</p>
+        <span class="more">GÖR →</span>
+      </a>
+    </section>
 
-  <footer>
-    <span>© Yunus Emre Durak</span>
-    <a href="https://github.com/r00twr3nch">github.com/r00twr3nch</a>
-  </footer>
+    <footer>
+      <span>© Yunus Emre Durak</span>
+      <a href="https://github.com/r00twr3nch">github.com/r00twr3nch</a>
+    </footer>
+  </div>
   <script src="site.js"></script>
 </body>
 </html>

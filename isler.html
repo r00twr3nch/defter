@@ -5,57 +5,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>İşler — Yunus Emre Durak</title>
   <meta name="description" content="Seçilmiş işler, stajlar, yazılım ve siber.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='28' fill='none' stroke='%23c4a06a' stroke-width='3'/><path d='M22 40c8-16 22-16 22-4' fill='none' stroke='%23c4a06a' stroke-width='3'/></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='28' fill='none' stroke='%23d4b07a' stroke-width='3'/><path d='M22 40c8-16 22-16 22-4' fill='none' stroke='%23d4b07a' stroke-width='3'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Source+Sans+3:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <script src="lamp-0.js"></script>
-  <script src="lamp-1.js"></script>
-  <script src="lamp-2.js"></script>
-  <script src="lamp.js"></script>
 </head>
 <body data-page="isler">
   <div class="grain"></div>
   <div class="vignette"></div>
   <canvas id="dust"></canvas>
-  <img class="inner-lamp" data-lamp alt="" width="557" height="820">
-  <header class="top">
-    <a class="mark" href="index.html" aria-label="ana sayfa">☾</a>
-    <nav>
-      <a href="index.html">Ana</a>
-      <a href="defter.html">Defter</a>
-      <a href="yazilar.html">Yazılar</a>
-      <a href="isler.html" class="on">İşler</a>
-      <a href="hakkinda.html">Hakkında</a>
-    </nav>
-  </header>
+  <div class="stage" aria-hidden="true">
+    <img class="stage-img" src="assets/hero.jpg" alt="" width="1792" height="1008">
+    <div class="stage-shade"></div>
+  </div>
+  <div class="glow" aria-hidden="true"></div>
 
-  <main class="page">
-    <p class="section-label">İşler</p>
-    <h1>Seçilmiş işler</h1>
-    <section class="cards" style="padding:1.5rem 0 0">
-      <a class="card" href="https://github.com/r00twr3nch/sinyal" target="_blank" rel="noopener">
-        <h3>Sinyal</h3>
-        <p>Gizli görevli gerçek zamanlı multiplayer parti oyunu.</p>
-        <div class="chips"><span>TypeScript</span><span>React</span><span>Socket.IO</span></div>
-      </a>
-      <a class="card" href="https://github.com/r00twr3nch/kiler-app" target="_blank" rel="noopener">
-        <h3>Kiler</h3>
-        <p>Küçük günlük araç. TypeScript.</p>
-        <div class="chips"><span>TypeScript</span></div>
-      </a>
-      <a class="card" href="https://github.com/r00twr3nch" target="_blank" rel="noopener">
-        <h3>Lab &amp; staj</h3>
-        <p>Siber, backend, intern notları GitHub’da.</p>
-        <div class="chips"><span>Python</span><span>C#</span><span>Linux</span></div>
-      </a>
-    </section>
-  </main>
-  <footer>
-    <span>© Yunus Emre Durak</span>
-    <a href="https://github.com/r00twr3nch">github.com/r00twr3nch</a>
-  </footer>
+  <div class="shell">
+    <header class="top">
+      <a class="mark" href="index.html" aria-label="ana sayfa">☾</a>
+      <nav>
+        <a href="index.html">Ana</a>
+        <a href="defter.html">Defter</a>
+        <a href="yazilar.html">Yazılar</a>
+        <a href="isler.html" class="on">İşler</a>
+        <a href="hakkinda.html">Hakkında</a>
+      </nav>
+    </header>
+
+    <main class="page">
+      <p class="section-label">İşler</p>
+      <h1>Seçilmiş işler</h1>
+      <p class="lede">Oyun, araç, staj. Hepsi açıkta.</p>
+
+      <section class="work-grid">
+        <a class="card" href="https://github.com/r00twr3nch/sinyal" target="_blank" rel="noopener">
+          <h3>Sinyal</h3>
+          <p>Gizli görevli gerçek zamanlı multiplayer parti oyunu. Kim sinyal veriyor?</p>
+          <div class="chips"><span>TypeScript</span><span>React</span><span>Socket.IO</span></div>
+          <span class="more">GITHUB →</span>
+        </a>
+        <a class="card" href="https://github.com/r00twr3nch/kiler-app" target="_blank" rel="noopener">
+          <h3>Kiler</h3>
+          <p>Küçük günlük araç. TypeScript ile sade tutulmuş bir kiler.</p>
+          <div class="chips"><span>TypeScript</span></div>
+          <span class="more">GITHUB →</span>
+        </a>
+        <a class="card" href="https://github.com/r00twr3nch/TaxiApp" target="_blank" rel="noopener">
+          <h3>TaxiApp</h3>
+          <p>C# tarafında taksi işi. Küçük, net, staj izi taşıyan bir uygulama.</p>
+          <div class="chips"><span>C#</span></div>
+          <span class="more">GITHUB →</span>
+        </a>
+        <a class="card" href="https://github.com/r00twr3nch/Internship_Part3" target="_blank" rel="noopener">
+          <h3>Lab & staj</h3>
+          <p>MongoDB, PostgreSQL, C# eğitim notları. Tostbang günlerinden.</p>
+          <div class="chips"><span>C#</span><span>MongoDB</span><span>PostgreSQL</span></div>
+          <span class="more">GITHUB →</span>
+        </a>
+      </section>
+    </main>
+    <footer>
+      <span>© Yunus Emre Durak</span>
+      <a href="https://github.com/r00twr3nch">github.com/r00twr3nch</a>
+    </footer>
+  </div>
   <script src="site.js"></script>
 </body>
 </html>
