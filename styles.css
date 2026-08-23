@@ -46,7 +46,7 @@ img { max-width: 100%; display: block; }
   inset: 0;
   z-index: 0;
   overflow: hidden;
-  background: var(--bg) url("assets/hero.jpg") 80% 40% / cover no-repeat;
+  background: var(--bg) url("assets/hero.jpg?v=2") 80% 40% / cover no-repeat;
 }
 .stage picture {
   position: absolute;
