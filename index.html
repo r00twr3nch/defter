@@ -5,22 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Yunus Emre Durak</title>
   <meta name="description" content="Yazılım, siber, defter. Gece vakti laboratuvar notları ve uhrevi denemeler.">
+  <meta property="og:title" content="Yunus Emre Durak">
+  <meta property="og:description" content="Karanlıkta ölçülü çalışmak, doğru olanı sessizce inşa etmektir.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='28' fill='none' stroke='%23c4a06a' stroke-width='3'/><path d='M22 40c8-16 22-16 22-4' fill='none' stroke='%23c4a06a' stroke-width='3'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Source+Sans+3:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="lamp-0.js"></script>
+  <script src="lamp-1.js"></script>
+  <script src="lamp-2.js"></script>
+  <script src="lamp.js"></script>
 </head>
-<body>
-  <div class="lamp" aria-hidden="true">
-    <div class="lamp-head"></div>
-    <div class="beam"></div>
-    <div class="dust"></div>
-  </div>
-
+<body data-page="ana">
+  <div class="grain"></div>
+  <div class="vignette"></div>
+  <canvas id="dust"></canvas>
   <header class="top">
-    <a class="mark" href="index.html">yed</a>
+    <a class="mark" href="index.html" aria-label="ana sayfa">☾</a>
     <nav>
-      <a class="on" href="index.html">Ana</a>
+      <a href="index.html" class="on">Ana</a>
       <a href="defter.html">Defter</a>
       <a href="yazilar.html">Yazılar</a>
       <a href="isler.html">İşler</a>
@@ -28,55 +32,49 @@
     </nav>
   </header>
 
-  <main class="hero">
-    <p class="kicker">yazılım · siber · defter</p>
-    <h1>Yunus Emre Durak</h1>
-    <p class="lede">Karanlıkta ölçülü çalışmak, doğru olanı sessizce inşa etmektir.</p>
-    <div class="actions">
-      <a class="btn" href="hakkinda.html">CV</a>
-      <a class="btn ghost" href="https://github.com/r00twr3nch" target="_blank" rel="noopener">GitHub</a>
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="kicker">yazılım · siber · defter</p>
+      <h1>Yunus Emre Durak</h1>
+      <p class="lede">Karanlıkta ölçülü çalışmak, doğru olanı sessizce inşa etmektir.</p>
+      <p class="scribble">gece vakti.</p>
+      <div class="actions">
+        <a class="btn" href="defter.html">Deftere göz at →</a>
+        <a class="btn ghost" href="yazilar.html">Yazılarımı oku</a>
+      </div>
     </div>
-  </main>
-
-  <section class="split">
-    <div>
-      <h2 class="hand">Defter</h2>
-      <ul class="notes">
-        <li><a href="defter.html"><span class="hand">Işıltı ve şifre</span><time>not</time></a></li>
-        <li><a href="defter.html"><span class="hand">Gölgede riyazet</span><time>not</time></a></li>
-      </ul>
-    </div>
-    <div>
-      <h2>Yazılar</h2>
-      <ul class="essays">
-        <li>
-          <a href="yazilar.html">
-            <strong>Klavyeden Uzakta</strong>
-            <em class="hand">Bazen bağlantıyı kesmek de bir tür ricattır.</em>
-          </a>
-        </li>
-      </ul>
+    <div class="lamp-stage" aria-hidden="true">
+      <div class="beam-origin">
+        <div class="beam haze"></div>
+        <div class="beam cone"></div>
+        <div class="beam core"></div>
+      </div>
+      <img class="lamp-img" data-lamp alt="" width="557" height="820">
     </div>
   </section>
 
-  <section class="work-row">
-    <a class="card" href="isler.html">
-      <h3>Sinyal</h3>
-      <p>Gerçek zamanlı multiplayer parti oyunu.</p>
+  <section class="cards">
+    <a class="card hand-title" href="defter.html">
+      <h2>Defter</h2>
+      <p>Laboratuvar notları, araçlar, kısa gözlemler.</p>
+      <span class="more">AÇ →</span>
+    </a>
+    <a class="card" href="yazilar.html">
+      <h2>Yazılar</h2>
+      <p>Uzun form denemeler; edebi ve uhrevi.</p>
+      <span class="more">OKU →</span>
     </a>
     <a class="card" href="isler.html">
-      <h3>Kiler</h3>
-      <p>Günlük araç; TypeScript.</p>
-    </a>
-    <a class="card" href="hakkinda.html">
-      <h3>Yol</h3>
-      <p>Yazılım ve siber güvenlik.</p>
+      <h2>İşler</h2>
+      <p>Seçilmiş işler, stajlar, yazılım ve siber.</p>
+      <span class="more">GÖR →</span>
     </a>
   </section>
 
   <footer>
     <span>© Yunus Emre Durak</span>
-    <a href="mailto:hello@yunusemredurak.com.tr">iletişim</a>
+    <a href="https://github.com/r00twr3nch">github.com/r00twr3nch</a>
   </footer>
+  <script src="site.js"></script>
 </body>
 </html>
