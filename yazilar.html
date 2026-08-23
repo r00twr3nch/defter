@@ -3,30 +3,46 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Yazılar — Yunus Emre Durak</title>
+  <title>Klavyeden Uzakta — Yunus Emre Durak</title>
+  <meta name="description" content="Uzun form denemeler; edebi ve uhrevi.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='28' fill='none' stroke='%23c4a06a' stroke-width='3'/><path d='M22 40c8-16 22-16 22-4' fill='none' stroke='%23c4a06a' stroke-width='3'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Source+Sans+3:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Source+Sans+3:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="lamp-0.js"></script>
+  <script src="lamp-1.js"></script>
+  <script src="lamp-2.js"></script>
+  <script src="lamp.js"></script>
 </head>
-<body>
-  <div class="lamp dim" aria-hidden="true"><div class="lamp-head"></div><div class="beam"></div></div>
+<body data-page="yazilar">
+  <div class="grain"></div>
+  <div class="vignette"></div>
+  <canvas id="dust"></canvas>
+  <img class="inner-lamp" data-lamp alt="" width="557" height="820">
   <header class="top">
-    <a class="mark" href="index.html">yed</a>
+    <a class="mark" href="index.html" aria-label="ana sayfa">☾</a>
     <nav>
       <a href="index.html">Ana</a>
       <a href="defter.html">Defter</a>
-      <a class="on" href="yazilar.html">Yazılar</a>
+      <a href="yazilar.html" class="on">Yazılar</a>
       <a href="isler.html">İşler</a>
       <a href="hakkinda.html">Hakkında</a>
     </nav>
   </header>
-  <main class="page narrow">
-    <p class="kicker hand">Yazılar</p>
+
+  <main class="page narrow prose">
+    <p class="section-label">Yazılar · 04.12.2025</p>
     <h1>Klavyeden Uzakta</h1>
-    <p>Klavyeden uzaklaşmak bazen bir kaçış değil, bir nevi ricattır. Kelimelerin arasında kaybolunduğunda en doğru adım, bir süre hiç yazmamaktır.</p>
+    <p>Klavyeden uzaklaşmak bazen bir kaçış değil, bir nevi ricattır. Kelimelerin arasında kaybolduğunu fark ettiğinde en doğru adım, bir süre hiç yazmamaktır.</p>
     <blockquote class="hand">Bazen en iyi cümleler, parmakların değil, bakışın sustuğu yerde yazılır.</blockquote>
-    <p>Bu sayfa şimdilik tek deneme. Yenisini aynı kalıpla ekleriz.</p>
+    <p>Ekranın soğuk ışığı yerini loş bir lamba sıcaklığına bırakınca düşünceler daha yavaş, daha sahici bir kıvam alır. Orada ne bildirim vardır, ne de cevap bekleyen satır.</p>
+    <p>Bu sayfa defterin uzun soluğu. Yeni denemeler aynı kalıpla eklenecek.</p>
   </main>
+  <footer>
+    <span>© Yunus Emre Durak</span>
+    <a href="https://github.com/r00twr3nch">github.com/r00twr3nch</a>
+  </footer>
+  <script src="site.js"></script>
 </body>
 </html>
