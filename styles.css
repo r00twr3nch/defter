@@ -52,6 +52,7 @@ img { max-width: 100%; display: block; }
   position: absolute;
   inset: 0;
   display: block;
+  will-change: transform;
 }
 .stage-img {
   position: absolute;
@@ -88,6 +89,7 @@ img { max-width: 100%; display: block; }
   background: radial-gradient(ellipse at 60% 50%, rgba(255, 190, 90, .18), transparent 68%);
   mix-blend-mode: screen;
   animation: breathe 7.5s ease-in-out infinite;
+  transition: opacity .4s ease;
 }
 @keyframes breathe {
   0%, 100% { opacity: .45; }
@@ -190,6 +192,7 @@ h1 {
   font-size: 1.85rem;
   transform: rotate(-8deg);
   margin: 1.25rem 0 0 .1rem;
+  animation: scribble-in 1.2s ease .7s both;
 }
 
 .cards {
@@ -377,5 +380,58 @@ body:not(.home) footer { padding-top: 1rem; padding-bottom: 2.2rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .glow, nav a.on::after { animation: none; }
+  .glow, nav a.on::after, .scribble, .hero-copy > *, .card { animation: none !important; }
+  body.leaving { transition: none; opacity: 1; }
 }
+
+.hero-copy > *:not(.scribble) { animation: rise .95s ease both; }
+.hero-copy > *:nth-child(1) { animation-delay: .12s; }
+.hero-copy > *:nth-child(2) { animation-delay: .28s; }
+.hero-copy > *:nth-child(3) { animation-delay: .44s; }
+@keyframes rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes scribble-in {
+  from { opacity: 0; clip-path: inset(0 100% 0 0); }
+  to { opacity: 1; clip-path: inset(0 0 0 0); }
+}
+.cards .card { animation: rise .8s ease both; }
+.cards .card:nth-child(1) { animation-delay: .95s; }
+.cards .card:nth-child(2) { animation-delay: 1.08s; }
+.cards .card:nth-child(3) { animation-delay: 1.2s; }
+
+.lamp-hit {
+  position: fixed;
+  z-index: 11;
+  right: 1.5vw;
+  top: 14vh;
+  width: min(34vw, 420px);
+  height: 64vh;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.lamp-hit:focus-visible { outline: 1px solid var(--brass); outline-offset: 4px; }
+
+body.leaving {
+  opacity: 0;
+  transition: opacity .28s ease;
+}
+body.dim .stage-img { filter: brightness(.36) saturate(.7); transition: filter .6s ease; }
+body.dim .glow { opacity: .08 !important; animation: none; }
+body.dim .vignette { opacity: 1; }
+body.flare .stage-img { filter: brightness(1.16) saturate(1.14); }
+body.flare .glow,
+body.warm .glow {
+  animation: none;
+  opacity: 1;
+}
+.stage-img { transition: filter .45s ease; }
+.hour { font-style: normal; color: var(--brass); letter-spacing: .08em; font-size: .78rem; }
+
+@media (max-width: 860px) {
+  .lamp-hit { top: 8vh; width: 48vw; height: 42vh; right: 0; }
+}
+
