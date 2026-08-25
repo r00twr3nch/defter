@@ -294,7 +294,17 @@ blockquote.hand {
 .prose p { font-size: 1.22rem; line-height: 1.78; color: #ebe3d7; }
 .prose p + p { margin-top: 1.15rem; }
 
-.timeline { list-style: none; padding: 0; margin: 1.7rem 0 0; }
+.block {
+  margin-top: 2.4rem;
+}
+.block-title {
+  font-family: var(--hand);
+  font-size: 1.65rem;
+  color: var(--brass);
+  margin: 0 0 .15rem;
+  font-weight: 500;
+}
+.timeline { list-style: none; padding: 0; margin: .55rem 0 0; }
 .timeline li { padding: 1rem 0 1rem 1.2rem; border-left: 1px solid var(--line); }
 .timeline strong { display: block; font-weight: 500; font-size: 1.22rem; }
 .timeline .when {
