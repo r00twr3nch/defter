@@ -46,7 +46,7 @@ img { max-width: 100%; display: block; }
   inset: 0;
   z-index: 0;
   overflow: hidden;
-  background: var(--bg) url("assets/hero.jpg?v=2") 80% 40% / cover no-repeat;
+  background: var(--bg);
 }
 .stage picture {
   position: absolute;
@@ -98,16 +98,18 @@ img { max-width: 100%; display: block; }
 
 body:not(.home) .stage { opacity: 1; }
 body:not(.home) .stage-img {
-  object-position: 92% 40%;
-  opacity: .55;
-  filter: brightness(.72) saturate(1.05);
+  object-position: 88% 42%;
+  opacity: .9;
+  filter: brightness(.52) saturate(1.04);
+  -webkit-mask-image: linear-gradient(90deg, transparent 8%, transparent 38%, #000 78%);
+          mask-image: linear-gradient(90deg, transparent 8%, transparent 38%, #000 78%);
 }
 body:not(.home) .stage-shade {
   background:
-    linear-gradient(90deg, var(--bg) 0%, rgba(7,6,5,.94) 42%, rgba(7,6,5,.55) 70%, rgba(7,6,5,.28) 100%),
-    linear-gradient(180deg, rgba(7,6,5,.2), transparent 18%, transparent 78%, rgba(7,6,5,.7));
+    linear-gradient(90deg, var(--bg) 0%, rgba(7,6,5,.88) 36%, rgba(7,6,5,.35) 68%, rgba(7,6,5,.12) 100%),
+    linear-gradient(180deg, rgba(7,6,5,.18), transparent 18%, transparent 78%, rgba(7,6,5,.62));
 }
-body:not(.home) .glow { opacity: .28; right: 8%; }
+body:not(.home) .glow { opacity: .2; right: 6%; }
 
 .shell {
   position: relative;
@@ -361,7 +363,7 @@ body:not(.home) footer { padding-top: 1rem; padding-bottom: 2.2rem; }
     justify-content: flex-end;
   }
   h1 { font-size: clamp(2.5rem, 12vw, 3.7rem); }
-  .stage-img, .stage { object-position: 90% 68%; background-position: 90% 68%; }
+  .stage-img { object-position: 90% 68%; }
   .stage-shade {
     background:
       linear-gradient(180deg,
@@ -431,7 +433,65 @@ body.warm .glow {
 .stage-img { transition: filter .45s ease; }
 .hour { font-style: normal; color: var(--brass); letter-spacing: .08em; font-size: .78rem; }
 
+/* held lamp — cursor */
+html.has-lantern, html.has-lantern * { cursor: none !important; }
+.spot {
+  position: fixed;
+  left: 0; top: 0;
+  width: 44vmax;
+  height: 44vmax;
+  margin: -22vmax 0 0 -22vmax;
+  pointer-events: none;
+  z-index: 46;
+  background: radial-gradient(circle,
+    rgba(255, 214, 150, .26) 0%,
+    rgba(255, 176, 80, .11) 26%,
+    rgba(140, 90, 30, .04) 48%,
+    transparent 68%);
+  mix-blend-mode: screen;
+  will-change: transform;
+}
+body:not(.home) .spot {
+  width: 50vmax;
+  height: 50vmax;
+  margin: -25vmax 0 0 -25vmax;
+  background: radial-gradient(circle,
+    rgba(255, 220, 160, .32) 0%,
+    rgba(255, 180, 85, .14) 28%,
+    rgba(120, 75, 25, .05) 50%,
+    transparent 70%);
+}
+.lantern {
+  position: fixed;
+  left: 0; top: 0;
+  width: 11px;
+  height: 11px;
+  margin: -5px 0 0 -5px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 90;
+  background: radial-gradient(circle at 38% 32%, #fff8e4, #ffd078 38%, #d4923a 68%, transparent 72%);
+  box-shadow:
+    0 0 8px 2px rgba(255, 200, 110, .85),
+    0 0 22px 8px rgba(212, 160, 80, .4);
+  mix-blend-mode: screen;
+  will-change: transform;
+  transition: width .18s ease, height .18s ease, margin .18s ease;
+}
+.lantern.is-link {
+  width: 16px;
+  height: 16px;
+  margin: -8px 0 0 -8px;
+  box-shadow:
+    0 0 12px 4px rgba(255, 210, 130, .9),
+    0 0 32px 12px rgba(212, 160, 80, .45);
+}
+body.dim .spot { opacity: .45; }
+body.flare .spot { opacity: 1; filter: brightness(1.3); }
+
 @media (max-width: 860px) {
   .lamp-hit { top: 8vh; width: 48vw; height: 42vh; right: 0; }
+  html.has-lantern, html.has-lantern * { cursor: auto !important; }
+  .spot, .lantern { display: none; }
 }
 

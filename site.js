@@ -1,5 +1,6 @@
 (() => {
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const fine = window.matchMedia("(pointer:fine)").matches;
   const home = document.body.classList.contains("home");
   const stagePic = document.querySelector(".stage picture") || document.querySelector(".stage-img");
   const glow = document.querySelector(".glow");
@@ -71,34 +72,56 @@
   const hit = document.querySelector(".lamp-hit");
   if (hit) hit.addEventListener("click", flare);
 
-  let tx = 0.5, ty = 0.5, mx = 0.5, my = 0.5;
-  if (!reduce && matchMedia("(pointer:fine)").matches) {
+  let px = innerWidth * 0.72, py = innerHeight * 0.42;
+  let lx = px, ly = py, sx = px, sy = py;
+  let onLink = false;
+  const lantern = document.createElement("div");
+  lantern.className = "lantern";
+  lantern.setAttribute("aria-hidden", "true");
+  const spot = document.createElement("div");
+  spot.className = "spot";
+  spot.setAttribute("aria-hidden", "true");
+  const useLantern = !reduce && fine && innerWidth > 860;
+  if (useLantern) {
+    document.documentElement.classList.add("has-lantern");
+    document.body.append(spot, lantern);
     addEventListener("mousemove", (e) => {
-      tx = e.clientX / innerWidth;
-      ty = e.clientY / innerHeight;
+      px = e.clientX;
+      py = e.clientY;
+      const t = e.target;
+      onLink = !!(t && t.closest && t.closest("a, button, .lamp-hit"));
+      lantern.classList.toggle("is-link", onLink);
     }, { passive: true });
+    addEventListener("mouseleave", () => {
+      lantern.style.opacity = "0";
+      spot.style.opacity = "0";
+    });
+    addEventListener("mouseenter", () => {
+      lantern.style.opacity = "";
+      spot.style.opacity = "";
+    });
   }
 
   const c = document.getElementById("dust");
-  if (!c || reduce) return;
-  const ctx = c.getContext("2d");
+  const ctx = c && !reduce ? c.getContext("2d") : null;
   const n = innerWidth < 800 ? 24 : home ? 88 : 40;
-  const dots = Array.from({ length: n }, () => ({
-    x: Math.random(),
-    y: Math.random(),
-    r: Math.random() * 1.5 + .18,
-    s: Math.random() * .00034 + .00005,
-    a: Math.random() * .45 + .06,
-  }));
-  const fit = () => { c.width = innerWidth; c.height = innerHeight; };
+  const dots = ctx
+    ? Array.from({ length: n }, () => ({
+        x: Math.random(),
+        y: Math.random(),
+        r: Math.random() * 1.5 + .18,
+        s: Math.random() * .00034 + .00005,
+        a: Math.random() * .45 + .06,
+      }))
+    : [];
+  const fit = () => { if (c) { c.width = innerWidth; c.height = innerHeight; } };
   addEventListener("resize", fit, { passive: true });
   fit();
 
   const loop = () => {
-    mx += (tx - mx) * 0.045;
-    my += (ty - my) * 0.045;
-    const dx = (mx - 0.5) * (home ? 22 : 10);
-    const dy = (my - 0.5) * (home ? 14 : 8);
+    const tx = px / innerWidth, ty = py / innerHeight;
+    const dx = (tx - 0.5) * (home ? 22 : 10);
+    const dy = (ty - 0.5) * (home ? 14 : 8);
     if (stagePic) {
       stagePic.style.transform = `translate(${dx}px, ${dy}px) scale(1.05)`;
     }
@@ -106,20 +129,31 @@
       glow.style.translate = `${dx * 1.4}px ${dy * 1.4}px`;
     }
 
-    ctx.clearRect(0, 0, c.width, c.height);
-    const wind = (mx - 0.5) * 0.0009;
-    for (const d of dots) {
-      d.y -= d.s;
-      d.x += Math.sin(d.y * 16) * .00012 + wind;
-      if (d.y < 0) { d.y = 1; d.x = Math.random(); }
-      if (d.x < 0) d.x += 1;
-      if (d.x > 1) d.x -= 1;
-      const x = c.width * (home ? 0.36 + d.x * 0.62 : 0.55 + d.x * 0.45) + dx * 0.6;
-      const y = c.height * (0.06 + d.y * 0.84) + dy * 0.4;
-      ctx.fillStyle = `rgba(255,236,200,${d.a})`;
-      ctx.beginPath();
-      ctx.arc(x, y, d.r, 0, Math.PI * 2);
-      ctx.fill();
+    if (useLantern) {
+      lx += (px - lx) * 0.38;
+      ly += (py - ly) * 0.38;
+      sx += (px - sx) * 0.11;
+      sy += (py - sy) * 0.11;
+      lantern.style.transform = `translate(${lx}px, ${ly}px)`;
+      spot.style.transform = `translate(${sx}px, ${sy}px)`;
+    }
+
+    if (ctx) {
+      ctx.clearRect(0, 0, c.width, c.height);
+      const wind = (tx - 0.5) * 0.0009;
+      for (const d of dots) {
+        d.y -= d.s;
+        d.x += Math.sin(d.y * 16) * .00012 + wind;
+        if (d.y < 0) { d.y = 1; d.x = Math.random(); }
+        if (d.x < 0) d.x += 1;
+        if (d.x > 1) d.x -= 1;
+        const x = c.width * (home ? 0.36 + d.x * 0.62 : 0.55 + d.x * 0.45) + dx * 0.6;
+        const y = c.height * (0.06 + d.y * 0.84) + dy * 0.4;
+        ctx.fillStyle = `rgba(255,236,200,${d.a})`;
+        ctx.beginPath();
+        ctx.arc(x, y, d.r, 0, Math.PI * 2);
+        ctx.fill();
+      }
     }
     requestAnimationFrame(loop);
   };
