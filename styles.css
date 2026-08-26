@@ -569,7 +569,7 @@ body.kenar .leaf.prose {
   isolation: isolate;
   width: min(36rem, 44vw);
   margin: 0;
-  padding: 2.8rem 2.6rem 3.6rem;
+  padding: 3.1rem 2.8rem 4.4rem;
   color: #1c140c;
   font-family: var(--hand);
   background: none;
@@ -579,20 +579,14 @@ body.kenar .leaf.prose {
 body.kenar .leaf.prose::before {
   content: "";
   position: absolute;
-  inset: -16% -24% -18% -14%;
+  inset: -46% -58% -52% -42%;
   z-index: 0;
   background: url("/assets/leaf.png") center / cover no-repeat;
   filter: brightness(1.28) contrast(.9) saturate(.85);
   mix-blend-mode: multiply;
   opacity: .92;
-  -webkit-mask-image:
-    linear-gradient(to right, transparent 0%, #000 9%, #000 78%, transparent 100%),
-    linear-gradient(to bottom, transparent 0%, #000 7%, #000 91%, transparent 100%);
-  -webkit-mask-composite: source-in;
-          mask-image:
-    linear-gradient(to right, transparent 0%, #000 9%, #000 78%, transparent 100%),
-    linear-gradient(to bottom, transparent 0%, #000 7%, #000 91%, transparent 100%);
-          mask-composite: intersect;
+  -webkit-mask-image: radial-gradient(ellipse 78% 82% at 44% 46%, #000 0%, #000 46%, rgba(0,0,0,.55) 64%, rgba(0,0,0,.18) 80%, transparent 100%);
+          mask-image: radial-gradient(ellipse 78% 82% at 44% 46%, #000 0%, #000 46%, rgba(0,0,0,.55) 64%, rgba(0,0,0,.18) 80%, transparent 100%);
   pointer-events: none;
 }
 body.kenar .leaf.prose::after {
