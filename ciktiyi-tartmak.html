@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Çıktıyı tartmak — Yunus Emre Durak</title>
   <meta name="description" content="Büyük dil modeli çıktılarını kısa bir rubrik ile değerlendirmek.">
-  <link rel="stylesheet" href="styles.css?v=16">
+  <link rel="stylesheet" href="styles.css?v=17">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
-<body class="face">
+<body class="face i18n">
   <div class="progress" aria-hidden="true"></div>
   <div class="mesh" aria-hidden="true"></div>
   <div class="grid-bg" aria-hidden="true"></div>
@@ -18,18 +18,19 @@
     <header class="top">
       <a class="mark" href="index.html">YED</a>
       <nav>
-        <a href="index.html">Ana</a>
-        <a href="defter.html" class="on">Yazılar</a>
-        <a href="isler.html">İşler</a>
-        <a href="hakkinda.html">Hakkında</a>
+        <a href="index.html" data-en="Home">Ana</a>
+        <a href="defter.html" class="on" data-en="Writing">Yazılar</a>
+        <a href="isler.html" data-en="Work">İşler</a>
+        <a href="hakkinda.html" data-en="About">Hakkında</a>
       </nav>
+      <button class="lang-toggle" type="button" aria-label="English">EN</button>
       <p class="top-live"><span class="pulse"></span> İzmir · <span class="hour"></span></p>
     </header>
 
     <article class="post">
-      <p class="kicker"><a href="defter.html">Yazılar</a> · AI</p>
+      <p class="kicker"><a href="defter.html" data-en="Writing">Yazılar</a> · AI</p>
       <h1>Çıktıyı tartmak</h1>
-      <p class="post-byline"><time datetime="2026-07-12">12 Temmuz 2026</time> · 6 dakika</p>
+      <p class="post-byline"><time datetime="2026-07-12" data-en="12 July 2026">12 Temmuz 2026</time> · <span data-en="6 min">6 dakika</span></p>
       <p class="lede">Büyük dil modellerini eğitmek ayrı iştir; çıktıyı tartmak ayrı. Değerlendirme bulanıksa, modelin “iyileştiği” iddiası da bulanık kalır.</p>
 
       <div class="post-body">
@@ -44,7 +45,7 @@
       </div>
 
       <nav class="post-nav">
-        <a href="defter.html">← Tüm yazılar</a>
+        <a href="defter.html" data-en="← All writing">← Tüm yazılar</a>
         <a href="imza-sonra-paket.html">İmza, sonra paket →</a>
       </nav>
     </article>
@@ -55,6 +56,6 @@
     </footer>
   </div>
   <a class="flip" href="yazilar.html" aria-label="Kenar">☾</a>
-  <script src="site.js?v=16"></script>
+  <script src="site.js?v=17"></script>
 </body>
 </html>

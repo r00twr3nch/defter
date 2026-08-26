@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dar API — Yunus Emre Durak</title>
   <meta name="description" content="Dar tutulan API sözleşmesi bakım maliyetini düşürür.">
-  <link rel="stylesheet" href="styles.css?v=16">
+  <link rel="stylesheet" href="styles.css?v=17">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
-<body class="face">
+<body class="face i18n">
   <div class="progress" aria-hidden="true"></div>
   <div class="mesh" aria-hidden="true"></div>
   <div class="grid-bg" aria-hidden="true"></div>
@@ -18,18 +18,19 @@
     <header class="top">
       <a class="mark" href="index.html">YED</a>
       <nav>
-        <a href="index.html">Ana</a>
-        <a href="defter.html" class="on">Yazılar</a>
-        <a href="isler.html">İşler</a>
-        <a href="hakkinda.html">Hakkında</a>
+        <a href="index.html" data-en="Home">Ana</a>
+        <a href="defter.html" class="on" data-en="Writing">Yazılar</a>
+        <a href="isler.html" data-en="Work">İşler</a>
+        <a href="hakkinda.html" data-en="About">Hakkında</a>
       </nav>
+      <button class="lang-toggle" type="button" aria-label="English">EN</button>
       <p class="top-live"><span class="pulse"></span> İzmir · <span class="hour"></span></p>
     </header>
 
     <article class="post">
-      <p class="kicker"><a href="defter.html">Yazılar</a> · Yazılım</p>
+      <p class="kicker"><a href="defter.html" data-en="Writing">Yazılar</a> · <span data-en="Software">Yazılım</span></p>
       <h1>Dar API</h1>
-      <p class="post-byline"><time datetime="2025-09-04">4 Eylül 2025</time> · 5 dakika</p>
+      <p class="post-byline"><time datetime="2025-09-04" data-en="4 September 2025">4 Eylül 2025</time> · <span data-en="5 min">5 dakika</span></p>
       <p class="lede">Her endpoint’e bir dünya sığdırmak cazip durur. Dar tutulan sözleşme, yarınki kırılgan değişikliği küçültür.</p>
 
       <div class="post-body">
@@ -52,6 +53,6 @@
     </footer>
   </div>
   <a class="flip" href="yazilar.html" aria-label="Kenar">☾</a>
-  <script src="site.js?v=16"></script>
+  <script src="site.js?v=17"></script>
 </body>
 </html>
