@@ -4,4 +4,16 @@ Kişisel site. Ön yüz bir özgeçmiş; teknik yazı ve işler. Arka yüz nav�
 
 **[yunusemredurak.com.tr](https://yunusemredurak.com.tr)**
 
-Yazılım mühendisi, 2026 mezunu. İzmir.
+```
+index.html          ön yüz
+isler.html
+hakkinda.html
+yazilar/            teknik blog
+kenar/              edebi yüz (gizli)
+  index.html
+  klavyeden-uzakta.html
+  lamba-altinda.html
+assets/
+```
+
+Eski kök adresler yeni yollara yönlendirilir.

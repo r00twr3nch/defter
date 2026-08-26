@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Çıktıyı tartmak — Yunus Emre Durak</title>
+  <meta name="description" content="Büyük dil modeli çıktılarını kısa bir rubrik ile değerlendirmek.">
+  <link rel="stylesheet" href="/styles.css?v=21">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="face i18n">
+  <div class="progress" aria-hidden="true"></div>
+  <div class="mesh" aria-hidden="true"></div>
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="shell">
+    <header class="top">
+      <a class="mark" href="/">YED</a>
+      <nav>
+        <a href="/" data-en="Home">Ana</a>
+        <a href="/yazilar/" class="on" data-en="Writing">Yazılar</a>
+        <a href="/isler.html" data-en="Work">İşler</a>
+        <a href="/hakkinda.html" data-en="About">Hakkında</a>
+      </nav>
+      <button class="lang-toggle" type="button" aria-label="English">EN</button>
+      <p class="top-live"><span class="pulse"></span> İzmir · <span class="hour"></span></p>
+    </header>
+
+    <article class="post">
+      <p class="kicker"><a href="/yazilar/" data-en="Writing">Yazılar</a> · AI</p>
+      <h1>Çıktıyı tartmak</h1>
+      <p class="post-byline"><time datetime="2026-07-12" data-en="12 July 2026">12 Temmuz 2026</time> · <span data-en="6 min">6 dakika</span></p>
+      <p class="lede">Büyük dil modellerini eğitmek ayrı iştir; çıktıyı tartmak ayrı. Değerlendirme bulanıksa, modelin “iyileştiği” iddiası da bulanık kalır.</p>
+
+      <div class="post-body">
+        <p>xAI’de geçirdiğim dönemde işimin büyük kısmı, model cevabına bakıp “bu geçer mi?” sorusunu tekrarlanabilir kılmaktı. Uzun, edebi bir prompt ile her seferinde farklı bir ölçü kullanmak cazip durur. Ölçü her seferinde kayınca, iki annotator aynı çıktıya farklı not verir. Tartışma uzar; veri kirlenir.</p>
+        <p>Kullandığım rubrik üç soruya iner:</p>
+        <p><strong>Doğru mu?</strong> Olgu, hesap, alıntı. Yanlış bir tarih, uydurulmuş bir kaynak, çarpıtılmış bir kod parçası — bunlar “üslup” değil, hata.</p>
+        <p><strong>İşe yarar mı?</strong> Cevap, sorunun talep ettiği biçimde mi? Kullanıcı bir adım istedi, model bir manifesto yazdıysa doğruluk yetmez.</p>
+        <p><strong>Zarar verir mi?</strong> Güvenlik, mahremiyet, yanlış yönlendirme. Bu kapı kapalıysa diğer ikisi konuşulmaz.</p>
+        <p>Üç soruluk bir ızgara, “güzel yazmış” ile “kullanılır”ı ayırır. Belirsiz bir evet, net bir retten daha pahalıdır: evet, sonraki sürüme yanlış bir ödül sinyali taşır. Ret ise en azından nerede kırıldığını gösterir.</p>
+        <p>RAG tarafında da aynı disiplin işe yarar. Kaynak yoksa modelin uydurması bir “yaratıcılık” değil, değerlendirme hatasıdır. Prompt’u şişirmek yerine, cevabın hangi kanıta yaslandığını sormak daha ucuzdur.</p>
+        <p>Sonuç basit: değerlendirme aracı, modelden kısa olmalıdır. Rubrik üç sorudan uzunsa, tartan kişi yorulur; yorulan kişi evet demeye başlar.</p>
+      </div>
+
+      <nav class="post-nav">
+        <a href="/yazilar/" data-en="← All writing">← Tüm yazılar</a>
+        <a href="/yazilar/imza-sonra-paket.html">İmza, sonra paket →</a>
+      </nav>
+    </article>
+
+    <footer>
+      <span>© Yunus Emre Durak</span>
+      <span class="foot-links"><a href="https://github.com/r00twr3nch">github.com/r00twr3nch</a></span>
+    </footer>
+  </div>
+  <a class="flip" href="/kenar/" aria-label="Kenar">☾</a>
+  <script src="/site.js?v=21"></script>
+</body>
+</html>

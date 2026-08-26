@@ -177,7 +177,7 @@
   const openKenar = () => {
     if (kenar) return;
     document.body.classList.add("leaving");
-    setTimeout(() => { location.href = "yazilar.html"; }, 280);
+    setTimeout(() => { location.href = "/kenar/"; }, 280);
   };
 
   if (!kenar) {
@@ -285,13 +285,15 @@
   }
 
   if (!reduce) {
-    document.querySelectorAll('a[href$=".html"], a[href*=".html#"]').forEach((a) => {
+    document.querySelectorAll("a[href]").forEach((a) => {
+      const raw = a.getAttribute("href");
+      if (!raw || raw.startsWith("#") || raw.startsWith("mailto:") || raw.startsWith("tel:")) return;
       const url = new URL(a.href, location.href);
       if (url.origin !== location.origin) return;
+      if (url.pathname === location.pathname && !url.hash) return;
+      if (url.hash && url.pathname === location.pathname) return;
       a.addEventListener("click", (e) => {
         if (e.metaKey || e.ctrlKey || e.shiftKey || a.target === "_blank") return;
-        if (url.pathname === location.pathname && !url.hash) return;
-        if (url.hash && url.pathname === location.pathname) return;
         e.preventDefault();
         document.body.classList.add("leaving");
         setTimeout(() => { location.href = a.href; }, 280);
