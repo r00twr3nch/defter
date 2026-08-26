@@ -387,7 +387,16 @@ footer {
   font-size: .8rem;
   color: var(--mute);
 }
-footer a:hover { color: var(--brass); }
+.home .lede { max-width: 34rem; }
+
+.foot-links { display: flex; gap: 1.25rem; align-items: baseline; }
+a.kenar {
+  font-family: var(--hand);
+  font-size: 1.2rem;
+  color: rgba(212, 176, 122, .45);
+  letter-spacing: 0;
+}
+a.kenar:hover { color: var(--brass); }
 
 body:not(.home) .shell { grid-template-rows: auto 1fr auto; }
 body:not(.home) footer { padding-top: 1rem; padding-bottom: 2.2rem; }
