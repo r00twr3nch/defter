@@ -585,54 +585,186 @@ body:not(.home) .spot {
 body.dim .spot { opacity: .45; }
 body.flare .spot { opacity: 1; filter: brightness(1.3); }
 
-/* front of the medal — same palette, lamp as a whisper */
-body.face .grain { opacity: .05; }
-body.face .vignette {
-  opacity: .55;
-  background: radial-gradient(70% 70% at 88% 42%, transparent 10%, rgba(0,0,0,.42) 100%);
+/* public CV surface — no lamp */
+body.face {
+  --bg: #10100e;
+  --ink: #eeeae3;
+  --mute: #9a948a;
+  --line: rgba(255, 255, 255, .09);
+  --brass: #c4a574;
+  background: var(--bg);
+  font-family: var(--sans);
+  color: var(--ink);
 }
-body.face #dust { display: none; }
-body.face .lamp-hit {
-  display: block;
-  z-index: 8;
-  cursor: default;
-  background: transparent;
+body.face .grain,
+body.face .vignette,
+body.face .stage,
+body.face .glow,
+body.face .lamp-hit,
+body.face #dust { display: none !important; }
+
+body.face .shell {
+  max-width: 880px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0 1.6rem;
+  grid-template-rows: none;
 }
-body.face .stage-img {
-  object-position: 90% 42%;
-  opacity: .34;
-  filter: brightness(.58) saturate(.88);
-  -webkit-mask-image: linear-gradient(90deg, transparent 8%, transparent 42%, #000 78%);
-          mask-image: linear-gradient(90deg, transparent 8%, transparent 42%, #000 78%);
+body.face .top {
+  padding: 1.15rem 0;
+  border-bottom: 1px solid var(--line);
 }
-body.face.home .stage-img { opacity: .42; object-position: 86% 40%; }
-body.face .stage-shade {
-  background:
-    linear-gradient(90deg, rgba(7,6,5,.94) 0%, rgba(7,6,5,.78) 38%, rgba(7,6,5,.28) 72%, rgba(7,6,5,.12) 100%),
-    linear-gradient(180deg, rgba(7,6,5,.15), transparent 20%, transparent 70%, rgba(7,6,5,.55));
+body.face .mark {
+  width: auto;
+  height: auto;
+  border: 0;
+  border-radius: 0;
+  font-family: var(--serif);
+  letter-spacing: .28em;
+  font-size: .95rem;
+  padding: 0;
+  background: none;
 }
-body.face .glow { opacity: .16; right: 8%; }
+body.face .mark:hover,
+body.face .mark.holding {
+  background: none;
+  color: var(--ink);
+  box-shadow: none;
+}
+body.face nav { font-size: .88rem; }
+body.face h1 {
+  text-shadow: none;
+  letter-spacing: -.04em;
+  font-weight: 500;
+}
 body.face .kicker {
-  letter-spacing: .2em;
+  letter-spacing: .18em;
   text-transform: uppercase;
   font-size: .68rem;
+  margin: 0 0 .85rem;
+}
+body.face .lede {
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  max-width: 38rem;
+  color: var(--mute);
 }
 body.face .section-label,
 body.face .block-title {
   font-family: var(--sans);
   font-size: .68rem;
-  letter-spacing: .2em;
+  letter-spacing: .18em;
   text-transform: uppercase;
   font-weight: 500;
 }
+body.face .page { padding: 2.8rem 0 4rem; }
+body.face .page h1 { font-size: clamp(2.1rem, 4.5vw, 3rem); margin-bottom: .6rem; }
 body.face .note h2,
-body.face .list .t { font-family: var(--serif); font-size: 1.55rem; }
-body.face .page h1 { font-size: clamp(2.3rem, 5vw, 3.6rem); }
-body.face .rest {
-  background: linear-gradient(180deg, transparent 0%, rgba(7,6,5,.72) 10%, var(--bg) 28%);
+body.face .list .t { font-family: var(--serif); font-size: 1.45rem; }
+body.face .card {
+  background: #171613;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  min-height: 0;
+  border-radius: 4px;
 }
-body.face.leaving { filter: brightness(1.12) saturate(1.08); }
-body.kenar.leaving { filter: brightness(.82); }
+body.face .card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0,0,0,.28);
+  background: #1d1b17;
+}
+body.face .card h3 { font-family: var(--serif); font-size: 1.3rem; }
+body.face .btn { border-radius: 4px; }
+body.face footer {
+  padding: 1.4rem 0 2rem;
+  border-top: 1px solid var(--line);
+  margin-top: auto;
+}
 
+.cv { padding: 0 0 3rem; }
+.cv-hero { padding: 3.4rem 0 1.2rem; }
+.cv-hero h1 {
+  font-size: clamp(2.6rem, 6vw, 4.1rem);
+  line-height: .95;
+  margin: 0 0 .9rem;
+}
+.cv-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem 1.2rem;
+  margin: 1rem 0 0;
+  font-size: .88rem;
+  color: var(--mute);
+}
+.cv-meta a { color: var(--brass); }
+.cv-meta a:hover { color: var(--ink); }
+.cv-hero .cta { margin-top: 1.35rem; }
+
+.cv-block { padding: 1.8rem 0 0.4rem; border-top: 1px solid var(--line); }
+.cv-block > header,
+.cv-block > h2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 0 0 1.05rem;
+}
+.cv-block h2 {
+  font-family: var(--sans);
+  font-size: .68rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--brass);
+  font-weight: 500;
+}
+.cv-block .all { font-size: .84rem; color: var(--brass); }
+.cv-block .all:hover { color: var(--ink); }
+
+.cv-rows { list-style: none; padding: 0; margin: 0; }
+.cv-rows li {
+  display: grid;
+  grid-template-columns: 11.5rem 1fr;
+  gap: .4rem 1.4rem;
+  padding: .85rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.cv-rows li:last-child { border-bottom: 0; }
+.cv-rows time {
+  font-size: .8rem;
+  color: var(--mute);
+  padding-top: .28rem;
+}
+.cv-rows .role {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  margin: 0;
+}
+.cv-rows .org { margin: .15rem 0 0; color: var(--mute); font-size: .92rem; }
+.cv-rows .bit { margin: .35rem 0 0; color: #c9c3b8; font-size: .92rem; line-height: 1.5; }
+
+.cv .work-grid { margin-top: 0; max-width: none; }
+.cv-notes { list-style: none; padding: 0; margin: 0; }
+.cv-notes a {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .8rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.cv-notes .t { font-family: var(--serif); font-size: 1.2rem; }
+.cv-notes time { color: var(--mute); font-size: .82rem; align-self: center; }
+.cv-notes a:hover .t { color: var(--brass); }
+
+@media (max-width: 700px) {
+  .cv-rows li { grid-template-columns: 1fr; gap: .2rem; }
+  .cv-hero { padding-top: 2.2rem; }
+  body.face .shell { padding: 0 1.2rem; }
+}
+
+body.face.leaving { opacity: 0; }
+body.kenar.leaving { filter: brightness(.82); }
 body.kenar .mark { box-shadow: 0 0 16px rgba(212,176,122,.28); }
 

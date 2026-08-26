@@ -1,7 +1,7 @@
-# defter
+# Yunus Emre Durak
 
-Madalyon. Ön yüz: CV, işler, teknik yazı. Arka yüz: edebi / uhrevi metinler.
+Kişisel site. Ön yüz bir özgeçmiş; teknik yazı ve işler. Arka yüz nav’da yok.
 
 **[yunusemredurak.com.tr](https://yunusemredurak.com.tr)**
 
-Aynı palet, aynı lamba. Önde fısıltı; ☾ işaretinden kenara geçince oda açılır. Nav’da kenar yok.
+Yazılım mühendisi, 2026 mezunu. İzmir.
