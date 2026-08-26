@@ -28,6 +28,49 @@
 
   document.body.classList.add("ready");
 
+  const openKenar = () => {
+    if (kenar) return;
+    document.body.classList.add("leaving");
+    setTimeout(() => { location.href = "yazilar.html"; }, 280);
+  };
+
+  if (!kenar) {
+    const mark = document.querySelector(".mark");
+    if (mark) {
+      let holdTimer = 0;
+      let flipped = false;
+      const arm = (e) => {
+        if (e.button && e.button !== 0) return;
+        flipped = false;
+        mark.classList.add("holding");
+        holdTimer = setTimeout(() => {
+          flipped = true;
+          openKenar();
+        }, 1100);
+      };
+      const disarm = () => {
+        mark.classList.remove("holding");
+        clearTimeout(holdTimer);
+      };
+      mark.addEventListener("pointerdown", arm);
+      mark.addEventListener("pointerup", disarm);
+      mark.addEventListener("pointerleave", disarm);
+      mark.addEventListener("click", (e) => {
+        if (flipped) {
+          e.preventDefault();
+          e.stopImmediatePropagation();
+        }
+      });
+    }
+    let buf = "";
+    addEventListener("keydown", (e) => {
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+      if (e.key.length !== 1) return;
+      buf = (buf + e.key.toLowerCase()).slice(-8);
+      if (buf.includes("kenar") || buf.includes("lamba")) openKenar();
+    });
+  }
+
   if (!reduce) {
     document.querySelectorAll('a[href$=".html"], a[href*=".html#"]').forEach((a) => {
       const url = new URL(a.href, location.href);

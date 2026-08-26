@@ -130,9 +130,15 @@ body:not(.home) .glow { opacity: .2; right: 6%; }
   color: var(--brass);
   font-size: 16px;
   line-height: 1;
-  transition: background .25s;
+  transition: background .25s, box-shadow .25s;
+  user-select: none;
 }
 .mark:hover { background: rgba(212,176,122,.12); }
+.mark.holding {
+  background: rgba(212,176,122,.28);
+  box-shadow: 0 0 22px rgba(212,176,122,.4);
+  transition: background 1.1s linear, box-shadow 1.1s linear;
+}
 nav {
   display: flex;
   gap: 1.9rem;
@@ -586,7 +592,12 @@ body.face .vignette {
   background: radial-gradient(70% 70% at 88% 42%, transparent 10%, rgba(0,0,0,.42) 100%);
 }
 body.face #dust { display: none; }
-body.face .lamp-hit { display: none; }
+body.face .lamp-hit {
+  display: block;
+  z-index: 8;
+  cursor: default;
+  background: transparent;
+}
 body.face .stage-img {
   object-position: 90% 42%;
   opacity: .34;
