@@ -37,6 +37,109 @@
     aura.setAttribute("aria-hidden", "true");
     aura.innerHTML = "<i></i><i></i><i></i>";
     document.body.prepend(aura);
+
+    const c = document.createElement("canvas");
+    c.id = "drift";
+    c.setAttribute("aria-hidden", "true");
+    document.body.prepend(c);
+    const ctx = c.getContext("2d");
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    let w = 0, h = 0, mx = -9999, my = -9999;
+    const size = () => {
+      w = innerWidth;
+      h = innerHeight;
+      c.width = Math.floor(w * dpr);
+      c.height = Math.floor(h * dpr);
+      c.style.width = w + "px";
+      c.style.height = h + "px";
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    };
+    size();
+    addEventListener("resize", size, { passive: true });
+    addEventListener("mousemove", (e) => { mx = e.clientX; my = e.clientY; }, { passive: true });
+    addEventListener("mouseleave", () => { mx = -9999; my = -9999; });
+
+    const n = w < 800 ? 32 : 64;
+    const dots = Array.from({ length: n }, () => ({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      vx: (Math.random() - 0.5) * 0.7,
+      vy: (Math.random() - 0.55) * 0.55,
+      r: Math.random() * 1.7 + 0.35,
+      a: Math.random() * 0.45 + 0.18,
+      p: Math.random() * Math.PI * 2,
+    }));
+    let streaks = [];
+    const spawn = () => {
+      streaks.push({
+        x: Math.random() * w * 0.2,
+        y: Math.random() * h * 0.75,
+        vx: 5 + Math.random() * 7,
+        vy: 1 + Math.random() * 1.8,
+        life: 1,
+      });
+    };
+    spawn();
+    setInterval(spawn, 2200);
+
+    const frame = () => {
+      ctx.clearRect(0, 0, w, h);
+      for (let i = 0; i < dots.length; i++) {
+        const d = dots[i];
+        const dx = d.x - mx;
+        const dy = d.y - my;
+        const dist = Math.hypot(dx, dy);
+        if (dist < 160 && dist > 1) {
+          const f = ((160 - dist) / 160) * 0.55;
+          d.vx += (dx / dist) * f;
+          d.vy += (dy / dist) * f;
+        }
+        d.vx *= 0.985;
+        d.vy *= 0.985;
+        d.x += d.vx + Math.sin(d.p) * 0.22;
+        d.y += d.vy + Math.cos(d.p * 0.8) * 0.12;
+        d.p += 0.035;
+        if (d.x < -12) d.x = w + 12;
+        if (d.x > w + 12) d.x = -12;
+        if (d.y < -12) d.y = h + 12;
+        if (d.y > h + 12) d.y = -12;
+        const pulse = 0.5 + Math.sin(d.p * 1.6) * 0.5;
+        ctx.beginPath();
+        ctx.fillStyle = `rgba(212,176,122,${d.a * pulse})`;
+        ctx.arc(d.x, d.y, d.r * (0.85 + pulse * 0.25), 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.lineWidth = 0.7;
+      for (let i = 0; i < dots.length; i++) {
+        for (let j = i + 1; j < dots.length; j++) {
+          const a = dots[i], b = dots[j];
+          const dx = a.x - b.x, dy = a.y - b.y;
+          const d2 = dx * dx + dy * dy;
+          if (d2 < 10000) {
+            const alpha = (1 - Math.sqrt(d2) / 100) * 0.22;
+            ctx.strokeStyle = `rgba(196,165,116,${alpha})`;
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.stroke();
+          }
+        }
+      }
+      streaks = streaks.filter((s) => s.life > 0 && s.x < w + 40);
+      for (const s of streaks) {
+        s.x += s.vx;
+        s.y += s.vy;
+        s.life -= 0.014;
+        ctx.strokeStyle = `rgba(236,210,150,${Math.max(0, s.life) * 0.65})`;
+        ctx.lineWidth = 1.35;
+        ctx.beginPath();
+        ctx.moveTo(s.x, s.y);
+        ctx.lineTo(s.x - s.vx * 9, s.y - s.vy * 9);
+        ctx.stroke();
+      }
+      requestAnimationFrame(frame);
+    };
+    requestAnimationFrame(frame);
   }
 
   const applyLang = (lang) => {
