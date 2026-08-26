@@ -30,6 +30,7 @@
   setInterval(tickClock, 20000);
 
   document.body.classList.add("ready");
+  addEventListener("pageshow", () => document.body.classList.remove("leaving"));
 
   if (document.body.classList.contains("face") && !reduce && !document.querySelector(".aura")) {
     const aura = document.createElement("div");
