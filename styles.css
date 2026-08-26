@@ -568,39 +568,16 @@ body.kenar .leaf.prose {
   z-index: 5;
   width: min(36rem, 44vw);
   margin: 0;
-  padding: 2.6rem 2.8rem 2.8rem 2.7rem;
-  color: #2a1d12;
+  padding: 2.7rem 2.9rem 3rem 2.8rem;
+  color: #1c140c;
   font-family: var(--hand);
-  background:
-    linear-gradient(90deg, rgba(28,16,8,.22), transparent 18%),
-    linear-gradient(270deg, rgba(255,186,96,.2), transparent 42%),
-    repeating-linear-gradient(
-      to bottom,
-      transparent 0,
-      transparent calc(var(--rule) - 1px),
-      rgba(92, 62, 28, .16) calc(var(--rule) - 1px),
-      rgba(92, 62, 28, .16) var(--rule)
-    ),
-    #cbb892;
-  box-shadow:
-    inset 0 0 60px rgba(90, 50, 16, .18),
-    0 0 40px rgba(255, 170, 70, .08),
-    10px 22px 40px rgba(0,0,0,.45);
-  -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 72%, rgba(0,0,0,.55) 88%, transparent 100%);
-          mask-image: linear-gradient(90deg, #000 0%, #000 72%, rgba(0,0,0,.55) 88%, transparent 100%);
-  border-radius: 2px;
+  background: url("/assets/leaf.png") center / 100% 100% no-repeat;
+  box-shadow: 14px 26px 50px rgba(0,0,0,.52);
+  border-radius: 0;
 }
-body.kenar .leaf.prose::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: .14;
-  mix-blend-mode: multiply;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-}
+body.kenar .leaf.prose::after { content: none; }
 body.kenar .leaf.prose .section-label {
-  color: #8a5a32;
+  color: #b08958;
   font-size: 1.5rem;
   margin: 0 0 .2rem;
 }
@@ -610,7 +587,7 @@ body.kenar .leaf.prose h1 {
   font-size: clamp(2.3rem, 3.6vw, 3.1rem);
   line-height: 1.15;
   letter-spacing: -.01em;
-  color: #1a130c;
+  color: #140e09;
   text-shadow: none;
   margin: 0 0 calc(var(--rule) * .7);
 }
@@ -618,7 +595,7 @@ body.kenar .leaf.prose p {
   font-family: var(--hand);
   font-size: 1.5rem;
   line-height: var(--rule);
-  color: #2a1d12;
+  color: #1c140c;
   font-weight: 500;
   margin: 0;
 }
@@ -627,7 +604,7 @@ body.kenar .leaf.prose blockquote.hand {
   margin: calc(var(--rule) * .6) 0;
   padding: 0;
   border: 0;
-  color: #7a3d22;
+  color: #8a4a2c;
   font-size: 1.65rem;
   line-height: var(--rule);
 }
@@ -637,16 +614,14 @@ body.kenar .leaf-back {
 body.kenar .leaf-back a {
   font-family: var(--hand);
   font-size: 1.35rem;
-  color: #7a3d22;
+  color: #8a4a2c;
 }
-body.kenar .leaf-back a:hover { color: #1a130c; }
+body.kenar .leaf-back a:hover { color: #140e09; }
 
 @media (max-width: 860px) {
   body.kenar .leaf.prose {
     width: min(94vw, 36rem);
     margin: 36vh 0 2rem;
-    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 8%, #000 100%);
-            mask-image: linear-gradient(180deg, transparent 0%, #000 8%, #000 100%);
   }
 }
 body.kenar .lamp-hit {
