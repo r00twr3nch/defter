@@ -30,7 +30,17 @@
   setInterval(tickClock, 20000);
 
   document.body.classList.add("ready");
-  addEventListener("pageshow", () => document.body.classList.remove("leaving"));
+  const restoreKenar = () => {
+    document.body.classList.remove("leaving");
+    if (!document.body.classList.contains("kenar")) return;
+    try {
+      if (sessionStorage.getItem("kenar-lit")) {
+        document.body.classList.add("lit");
+        document.documentElement.classList.add("prelit");
+      }
+    } catch (_) {}
+  };
+  addEventListener("pageshow", restoreKenar);
 
   if (document.body.classList.contains("face") && !reduce && !document.querySelector(".aura")) {
     const aura = document.createElement("div");
@@ -295,6 +305,7 @@
       if (url.hash && url.pathname === location.pathname) return;
       a.addEventListener("click", (e) => {
         if (e.metaKey || e.ctrlKey || e.shiftKey || a.target === "_blank") return;
+        if (kenar) return;
         e.preventDefault();
         document.body.classList.add("leaving");
         setTimeout(() => { location.href = a.href; }, 280);

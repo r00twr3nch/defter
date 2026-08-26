@@ -526,6 +526,10 @@ body.leaving {
   opacity: 0;
   transition: opacity .28s ease;
 }
+body.kenar.leaving {
+  opacity: 1;
+  filter: none;
+}
 body.dim .stage-img { filter: brightness(.36) saturate(.7); transition: filter .6s ease; }
 body.dim .glow { opacity: .08 !important; animation: none; }
 body.dim .vignette { opacity: 1; }
@@ -1193,7 +1197,7 @@ html.has-aim, html.has-aim * { cursor: none !important; }
 }
 
 body.face.leaving { opacity: 0; }
-body.kenar.leaving { filter: brightness(.82); }
+body.face.leaving { opacity: 0; }
 body.kenar .mark { box-shadow: 0 0 16px rgba(212,176,122,.28); }
 
 .progress {

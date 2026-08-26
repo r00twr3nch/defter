@@ -15,5 +15,3 @@ kenar/              edebi yüz (gizli)
   lamba-altinda.html
 assets/
 ```
-
-Eski kök adresler yeni yollara yönlendirilir.
