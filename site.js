@@ -224,7 +224,7 @@
       if (e.metaKey || e.ctrlKey || e.altKey) return;
       if (e.key.length !== 1) return;
       buf = (buf + e.key.toLowerCase()).slice(-8);
-      if (buf.includes("kenar") || buf.includes("lamba")) openKenar();
+      if (buf.includes("kenar") || buf.includes("lamba") || buf.includes("halvet")) openKenar();
     });
 
     if (!reduce) {
