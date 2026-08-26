@@ -7,11 +7,11 @@
   const glow = document.querySelector(".glow");
 
   const hourEl = (() => {
+    let el = document.querySelector(".hour");
+    if (el) return el;
     const host = document.querySelector("footer span");
     if (!host) return null;
-    if (!host.querySelector(".hour")) {
-      host.insertAdjacentHTML("beforeend", ' · <span class="hour"></span>');
-    }
+    host.insertAdjacentHTML("beforeend", ' · <span class="hour"></span>');
     return host.querySelector(".hour");
   })();
   const tickClock = () => {
@@ -69,6 +69,51 @@
       buf = (buf + e.key.toLowerCase()).slice(-8);
       if (buf.includes("kenar") || buf.includes("lamba")) openKenar();
     });
+
+    if (!reduce) {
+      const show = (el) => el.classList.add("in");
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((en) => { if (en.isIntersecting) show(en.target); });
+      }, { threshold: 0.08, rootMargin: "0px 0px -6% 0px" });
+      const armReveal = () => {
+        document.querySelectorAll(".reveal").forEach((el) => {
+          io.observe(el);
+          if (el.getBoundingClientRect().top < innerHeight * 0.95) show(el);
+        });
+      };
+      requestAnimationFrame(armReveal);
+    } else {
+      document.querySelectorAll(".reveal").forEach((el) => el.classList.add("in"));
+    }
+
+    const mesh = document.querySelector(".mesh");
+    if (mesh && fine) {
+      addEventListener("mousemove", (e) => {
+        mesh.style.setProperty("--mx", `${(e.clientX / innerWidth) * 100}%`);
+        mesh.style.setProperty("--my", `${(e.clientY / innerHeight) * 100}%`);
+      }, { passive: true });
+    }
+
+    if (fine && innerWidth > 860 && !reduce) {
+      const aim = document.createElement("div");
+      aim.className = "aim";
+      aim.setAttribute("aria-hidden", "true");
+      document.body.append(aim);
+      document.documentElement.classList.add("has-aim");
+      let ax = innerWidth / 2, ay = innerHeight / 2, tx = ax, ty = ay;
+      addEventListener("mousemove", (e) => {
+        tx = e.clientX; ty = e.clientY;
+        const hit = e.target && e.target.closest && e.target.closest("a, button");
+        aim.classList.toggle("on", !!hit);
+      }, { passive: true });
+      const spin = () => {
+        ax += (tx - ax) * 0.22;
+        ay += (ty - ay) * 0.22;
+        aim.style.transform = `translate(${ax}px, ${ay}px)`;
+        requestAnimationFrame(spin);
+      };
+      spin();
+    }
   }
 
   if (!reduce) {
