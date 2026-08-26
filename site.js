@@ -114,6 +114,28 @@
       };
       spin();
     }
+
+    const bar = document.querySelector(".progress");
+    if (bar) {
+      const paint = () => {
+        const max = document.documentElement.scrollHeight - innerHeight;
+        bar.style.transform = `scaleX(${max > 0 ? scrollY / max : 0})`;
+      };
+      addEventListener("scroll", paint, { passive: true });
+      paint();
+    }
+
+    if (fine && !reduce) {
+      document.querySelectorAll(".work-board .card, .work-grid .card").forEach((card) => {
+        card.addEventListener("mousemove", (e) => {
+          const r = card.getBoundingClientRect();
+          const x = (e.clientX - r.left) / r.width - 0.5;
+          const y = (e.clientY - r.top) / r.height - 0.5;
+          card.style.transform = `rotateY(${x * 8}deg) rotateX(${-y * 8}deg) translateY(-4px)`;
+        });
+        card.addEventListener("mouseleave", () => { card.style.transform = ""; });
+      });
+    }
   }
 
   if (!reduce) {

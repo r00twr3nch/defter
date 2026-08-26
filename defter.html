@@ -9,10 +9,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=13">
+  <link rel="stylesheet" href="styles.css?v=14">
 </head>
 <body class="face">
-  <div class="mesh" aria-hidden="true"></div>
+    <div class="progress" aria-hidden="true"></div>
+<div class="mesh" aria-hidden="true"></div>
   <div class="grid-bg" aria-hidden="true"></div>
   <div class="shell">
 
@@ -30,27 +31,27 @@
     <main class="page narrow">
       <p class="section-label">Yazılar</p>
       <h1>Teknik notlar</h1>
-      <p class="lede">Lab, API, güvenlik, değerlendirme.</p>
+      <p class="lede">Backend, API tasarımı, güvenlik ve model değerlendirmesi üzerine kısa notlar.</p>
 
       <article class="note" id="ciktiyi-tartmak">
         <time datetime="2026-07-12">12.07.2026</time>
         <h2>Çıktıyı tartmak</h2>
-        <p>Bir modeli eğitmek değil, cevabını tartmak. Doğru mu, işe yarar mı, zarar verir mi. Rubrik üç soruluk olunca tartışma kısalır. Uzun prompt’tan çok, net bir hayır daha değerlidir.</p>
+        <p>Dil modeli değerlendirmesinde tek bir uzun prompt yerine kısa, tekrarlanabilir bir rubrik kullanıyorum: doğru mu, işe yarar mı, zarar verir mi. Belirsiz bir evet, net bir retten daha maliyetlidir.</p>
       </article>
       <article class="note" id="dar-api">
         <time datetime="2025-09-04">04.09.2025</time>
         <h2>Dar API</h2>
-        <p>Her endpoint’e bir dünya alan sıkıştırmak cazip durur. Dar tutulan sözleşme, yarınki breaking change’i küçültür. Şema da öyle: önce sorguyu yaz, sonra tabloyu.</p>
+        <p>Geniş sözleşmeler kırılgan değişiklik üretir. Dar tutulan bir API ve “önce sorgu, sonra şema” yaklaşımı bakım maliyetini düşürür.</p>
       </article>
       <article class="note" id="imza-sonra-paket">
         <time datetime="2026-04-27">27.04.2026</time>
         <h2>İmza, sonra paket</h2>
-        <p>SIEM’de ilk bakış imzaya gider. Payload’un ayrıntısı sonra. Gürültülü alert, karanlık odaya ikinci lamba getirmek gibidir — aydınlatmaz, yorar.</p>
+        <p>SIEM incelemesinde önce imza, sonra yük. Gürültülü uyarılar analisti yorar; sinyal/gürültü oranını korumak önceliktir.</p>
       </article>
-      <article class="note">
+      <article class="note" id="readme">
         <time datetime="2026-03-18">18.03.2026</time>
         <h2>README’siz iş</h2>
-        <p>Repoya girmeden niyeti yaz. README’siz iş, kibriti olmayan lamba. Yanmaz; sadece durur.</p>
+        <p>Her deponun niyeti README’de yazılı olmalı. Belgesiz iş devralınamaz.</p>
       </article>
     </main>
     <footer>
@@ -58,6 +59,8 @@
       <span class="foot-links"><a href="https://github.com/r00twr3nch">github.com/r00twr3nch</a></span>
     </footer>
   </div>
-  <script src="site.js?v=13"></script>
+  <script src="site.js?v=14"></script>
+
+  <a class="flip" href="yazilar.html" aria-label="Kenar">☾</a>
 </body>
 </html>
