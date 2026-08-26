@@ -31,6 +31,14 @@
 
   document.body.classList.add("ready");
 
+  if (document.body.classList.contains("face") && !reduce && !document.querySelector(".aura")) {
+    const aura = document.createElement("div");
+    aura.className = "aura";
+    aura.setAttribute("aria-hidden", "true");
+    aura.innerHTML = "<i></i><i></i><i></i>";
+    document.body.prepend(aura);
+  }
+
   const applyLang = (lang) => {
     const en = lang === "en";
     document.documentElement.lang = en ? "en" : "tr";

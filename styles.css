@@ -631,6 +631,56 @@ body.face #dust { display: none !important; }
   to { background-position: 72px 72px; }
 }
 
+.aura {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+}
+.aura i {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(72px);
+  will-change: transform, opacity;
+}
+.aura i:nth-child(1) {
+  width: min(48vw, 560px);
+  height: min(48vw, 560px);
+  top: -16%;
+  right: -8%;
+  background: radial-gradient(circle, rgba(196,165,116,.5), transparent 68%);
+  animation: aura-a 24s ease-in-out infinite alternate;
+}
+.aura i:nth-child(2) {
+  width: min(36vw, 420px);
+  height: min(36vw, 420px);
+  bottom: -8%;
+  left: -12%;
+  background: radial-gradient(circle, rgba(110,62,22,.42), transparent 70%);
+  animation: aura-b 32s ease-in-out infinite alternate;
+}
+.aura i:nth-child(3) {
+  width: min(22vw, 280px);
+  height: min(22vw, 280px);
+  top: 38%;
+  left: 42%;
+  background: radial-gradient(circle, rgba(212,176,122,.22), transparent 68%);
+  animation: aura-c 18s ease-in-out infinite alternate;
+}
+@keyframes aura-a {
+  from { transform: translate(0, 0) scale(1); opacity: .7; }
+  to { transform: translate(-10%, 14%) scale(1.18); opacity: 1; }
+}
+@keyframes aura-b {
+  from { transform: translate(0, 0) scale(1); opacity: .55; }
+  to { transform: translate(14%, -10%) scale(1.12); opacity: .9; }
+}
+@keyframes aura-c {
+  from { transform: translate(0, 0) scale(.92); opacity: .35; }
+  to { transform: translate(8%, 10%) scale(1.2); opacity: .7; }
+}
+
 body.face .shell {
   position: relative;
   z-index: 10;
@@ -1013,9 +1063,10 @@ html.has-aim, html.has-aim * { cursor: none !important; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ticker-track, .pulse, .billboard-copy > *, .mesh, .grid-bg { animation: none !important; }
+  .ticker-track, .pulse, .billboard-copy > *, .mesh, .grid-bg, .aura i { animation: none !important; }
   .reveal, .cv-rows li { opacity: 1; transform: none; }
   .cv-rows::before { transform: none; }
+  .aura { display: none; }
 }
 
 body.face.leaving { opacity: 0; }
