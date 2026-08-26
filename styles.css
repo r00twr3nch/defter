@@ -533,6 +533,123 @@ body.flare .stage-img { filter: brightness(1.16) saturate(1.14); }
 body.flare .glow,
 body.warm .glow { animation: none; opacity: 1; }
 .stage-img { transition: filter .45s ease; }
+
+body.kenar .top,
+body.kenar nav,
+body.kenar footer { display: none !important; }
+body.kenar .stage-img {
+  object-position: 80% 42%;
+  opacity: 1;
+  -webkit-mask-image: none !important;
+          mask-image: none !important;
+  filter: brightness(.045) saturate(.5) contrast(1.05);
+  transition: filter 2.2s ease;
+}
+body.kenar .stage-shade {
+  background: linear-gradient(90deg, #000 0%, #000 38%, rgba(0,0,0,.72) 58%, rgba(0,0,0,.28) 100%);
+  transition: background 2s ease, opacity 2s ease;
+}
+body.kenar .glow { opacity: 0; transition: opacity 2s ease; }
+body.kenar #dust { opacity: 0; transition: opacity 2.2s ease; }
+body.kenar .grain { opacity: .04; }
+body.kenar .shell {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  padding: 4.5rem 6.5vw 3rem;
+}
+body.kenar .lamp-hit {
+  z-index: 25;
+  cursor: pointer;
+}
+body.kenar .lamp-hit::after {
+  content: "";
+  position: absolute;
+  left: 52%;
+  top: 44%;
+  width: 14px;
+  height: 14px;
+  margin: -7px 0 0 -7px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffe4a8, rgba(255,176,70,.1) 55%, transparent 70%);
+  box-shadow: 0 0 18px 6px rgba(255, 176, 70, .35);
+  animation: ember 2.4s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes ember {
+  0%, 100% { opacity: .35; transform: scale(.85); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+.whisper {
+  position: fixed;
+  z-index: 20;
+  left: 50%;
+  bottom: 11vh;
+  transform: translateX(-50%);
+  margin: 0;
+  font-family: var(--hand);
+  font-size: 1.4rem;
+  color: var(--brass);
+  letter-spacing: .06em;
+  opacity: .5;
+  pointer-events: none;
+  animation: whisper 3.2s ease-in-out infinite;
+}
+@keyframes whisper {
+  0%, 100% { opacity: .22; }
+  50% { opacity: .7; }
+}
+.kenar-back {
+  position: fixed;
+  z-index: 22;
+  top: 1.25rem;
+  left: 1.4rem;
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  color: var(--brass);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .8s ease .4s;
+}
+.kenar-back:hover { color: var(--ink); }
+
+body.kenar.lit .stage-img,
+html.prelit body.kenar .stage-img {
+  filter: brightness(.9) saturate(1.08);
+}
+body.kenar.lit .stage-shade,
+html.prelit body.kenar .stage-shade {
+  background:
+    linear-gradient(90deg, rgba(7,6,5,.86) 0%, rgba(7,6,5,.42) 34%, transparent 64%),
+    linear-gradient(180deg, transparent 68%, rgba(7,6,5,.72));
+}
+body.kenar.lit .glow,
+html.prelit body.kenar .glow { opacity: .8; }
+body.kenar.lit #dust,
+html.prelit body.kenar #dust { opacity: 1; }
+body.kenar.lit .grain { opacity: .11; }
+body.kenar.lit .shell,
+html.prelit body.kenar .shell {
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+  transition: opacity 1.7s ease .45s, transform 1.7s ease .45s;
+}
+body.kenar.lit .lamp-hit::after,
+html.prelit body.kenar .lamp-hit::after,
+body.kenar.lit .whisper,
+html.prelit body.kenar .whisper { display: none; }
+body.kenar.lit .kenar-back,
+html.prelit body.kenar .kenar-back {
+  opacity: .75;
+  pointer-events: auto;
+}
+body.kenar.flare .stage-img { filter: brightness(1.18) saturate(1.16); }
+
+@media (max-width: 860px) {
+  body.kenar .lamp-hit { top: 6vh; width: 70vw; height: 55vh; right: 0; }
+  body.kenar .lamp-hit::after { left: 62%; top: 40%; }
+}
 .hour { font-style: normal; color: var(--brass); letter-spacing: .08em; font-size: .78rem; }
 
 html.has-lantern, html.has-lantern * { cursor: none !important; }

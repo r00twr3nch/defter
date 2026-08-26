@@ -309,15 +309,38 @@
     }, { passive: true });
   }
 
-  if (kenar && !reduce) {
-    const flare = () => {
-      document.body.classList.add("flare");
-      clearTimeout(flare._t);
-      flare._t = setTimeout(() => document.body.classList.remove("flare"), 900);
+  if (kenar) {
+    const light = (flareNow) => {
+      document.body.classList.add("lit");
+      document.documentElement.classList.add("prelit");
+      try { sessionStorage.setItem("kenar-lit", "1"); } catch (_) {}
+      if (flareNow && !reduce) {
+        document.body.classList.add("flare");
+        setTimeout(() => document.body.classList.remove("flare"), 1200);
+      }
     };
-    const hit = document.querySelector(".lamp-hit");
-    if (hit) hit.addEventListener("click", flare);
+    try { if (sessionStorage.getItem("kenar-lit") || reduce) light(false); } catch (_) { if (reduce) light(false); }
 
+    const hit = document.querySelector(".lamp-hit");
+    if (hit) {
+      hit.addEventListener("click", () => {
+        if (!document.body.classList.contains("lit")) light(true);
+        else if (!reduce) {
+          document.body.classList.add("flare");
+          setTimeout(() => document.body.classList.remove("flare"), 900);
+        }
+      });
+    }
+
+    const back = document.querySelector(".kenar-back");
+    if (back) {
+      back.addEventListener("click", () => {
+        try { sessionStorage.removeItem("kenar-lit"); } catch (_) {}
+      });
+    }
+  }
+
+  if (kenar && !reduce) {
     const lantern = document.createElement("div");
     lantern.className = "lantern";
     lantern.setAttribute("aria-hidden", "true");
