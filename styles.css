@@ -569,7 +569,7 @@ body.kenar .leaf.prose {
   isolation: isolate;
   width: min(36rem, 44vw);
   margin: 0;
-  padding: 2.8rem 2.6rem 3rem;
+  padding: 2.8rem 2.6rem 3.6rem;
   color: #1c140c;
   font-family: var(--hand);
   background: none;
@@ -579,14 +579,20 @@ body.kenar .leaf.prose {
 body.kenar .leaf.prose::before {
   content: "";
   position: absolute;
-  inset: -14% -22% -12% -14%;
+  inset: -16% -24% -18% -14%;
   z-index: 0;
   background: url("/assets/leaf.png") center / cover no-repeat;
-  filter: brightness(1.22) contrast(.92) saturate(.85);
+  filter: brightness(1.28) contrast(.9) saturate(.85);
   mix-blend-mode: multiply;
-  opacity: .9;
-  -webkit-mask-image: radial-gradient(ellipse 76% 70% at 40% 42%, #000 0%, #000 28%, rgba(0,0,0,.55) 54%, transparent 74%);
-          mask-image: radial-gradient(ellipse 76% 70% at 40% 42%, #000 0%, #000 28%, rgba(0,0,0,.55) 54%, transparent 74%);
+  opacity: .92;
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0%, #000 9%, #000 78%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, #000 7%, #000 91%, transparent 100%);
+  -webkit-mask-composite: source-in;
+          mask-image:
+    linear-gradient(to right, transparent 0%, #000 9%, #000 78%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, #000 7%, #000 91%, transparent 100%);
+          mask-composite: intersect;
   pointer-events: none;
 }
 body.kenar .leaf.prose::after {
@@ -624,12 +630,14 @@ body.kenar .leaf.prose p {
 }
 body.kenar .leaf.prose p + p { margin-top: 0; }
 body.kenar .leaf.prose blockquote.hand {
-  margin: calc(var(--rule) * .6) 0;
+  margin: calc(var(--rule) * .7) 0;
   padding: 0;
   border: 0;
-  color: #8a4a2c;
-  font-size: 1.65rem;
+  color: #6a140e;
+  font-size: 1.78rem;
+  font-weight: 700;
   line-height: var(--rule);
+  text-shadow: 0 1px 0 rgba(255, 228, 186, .35);
 }
 body.kenar .leaf-back {
   margin-top: calc(var(--rule) * 1.1);
