@@ -9,7 +9,7 @@ index.html          ön yüz
 isler.html
 hakkinda.html
 yazilar/            teknik blog
-kenar/              edebi yüz (gizli)
+kenar/              hâşiye — edebi yüz (gizli)
   index.html
   klavyeden-uzakta.html
   lamba-altinda.html
