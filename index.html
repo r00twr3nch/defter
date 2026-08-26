@@ -4,16 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Yunus Emre Durak — Software Engineer</title>
-  <meta name="description" content="Yazılım mühendisi, İzmir. Backend, bilgi güvenliği ve dil modeli değerlendirmesi. Yaşar Üniversitesi mezunu, 2026.">
-  <meta property="og:title" content="Yunus Emre Durak — Software Engineer">
-  <meta property="og:description" content="Yazılım mühendisi. Backend, siber güvenlik, AI değerlendirme. İzmir.">
+  <meta name="description" content="Yazılım mühendisi, İzmir. Yapay zekâ mühendisliği ve bilgi güvenliği. Yaşar Üniversitesi mezunu, 2026.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%230b0a09'/><text x='32' y='42' text-anchor='middle' font-family='Georgia' font-size='18' fill='%23c4a574'>YED</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=15">
+  <link rel="stylesheet" href="styles.css?v=16">
 </head>
-<body class="face home" data-page="ana">
+<body class="face home i18n" data-page="ana">
   <div class="progress" aria-hidden="true"></div>
   <div class="mesh" aria-hidden="true"></div>
   <div class="grid-bg" aria-hidden="true"></div>
@@ -22,45 +20,46 @@
     <header class="top">
       <a class="mark" href="index.html">YED</a>
       <nav>
-        <a href="index.html" class="on">Ana</a>
-        <a href="defter.html">Yazılar</a>
-        <a href="isler.html">İşler</a>
-        <a href="hakkinda.html">Hakkında</a>
+        <a href="index.html" class="on" data-en="Home">Ana</a>
+        <a href="defter.html" data-en="Writing">Yazılar</a>
+        <a href="isler.html" data-en="Work">İşler</a>
+        <a href="hakkinda.html" data-en="About">Hakkında</a>
       </nav>
+      <button class="lang-toggle" type="button" aria-label="English">EN</button>
       <p class="top-live"><span class="pulse"></span> İzmir · <span class="hour"></span></p>
     </header>
 
     <main class="studio">
       <section class="billboard">
         <div class="billboard-copy">
-          <p class="eyebrow"><span class="pulse"></span> Yazılım mühendisi · 2026 mezunu</p>
+          <p class="eyebrow"><span class="pulse"></span> <span data-en="Software engineer · Class of 2026">Yazılım mühendisi · 2026 mezunu</span></p>
           <h1><span>Yunus Emre</span><span>Durak</span></h1>
-          <p class="lede">Yapay zekâ mühendisliği ve bilgi güvenliği üzerine çalışıyorum. Yaşar Üniversitesi Yazılım Mühendisliği (İngilizce) mezunuyum.</p>
+          <p class="lede" data-en="I work on AI engineering and information security. I graduated from Yaşar University, Software Engineering (English).">Yapay zekâ mühendisliği ve bilgi güvenliği üzerine çalışıyorum. Yaşar Üniversitesi Yazılım Mühendisliği (İngilizce) mezunuyum.</p>
           <div class="cta">
             <a class="btn" href="https://github.com/r00twr3nch" target="_blank" rel="noopener">GitHub</a>
             <a class="btn" href="https://linkedin.com/in/yunus-emre-durak" target="_blank" rel="noopener">LinkedIn</a>
-            <a class="btn ghost" href="mailto:yunusemre.durak@icloud.com">E-posta</a>
-            <a class="btn ghost" href="hakkinda.html">Özgeçmiş</a>
+            <a class="btn ghost" href="mailto:yunusemre.durak@icloud.com" data-en="Email">E-posta</a>
+            <a class="btn ghost" href="hakkinda.html" data-en="Resume">Özgeçmiş</a>
           </div>
         </div>
         <aside class="rack" aria-label="özet">
           <article>
             <span class="n">01</span>
-            <span class="k">Son rol</span>
+            <span class="k" data-en="Latest role">Son rol</span>
             <strong>AI Tutor</strong>
-            <p>xAI · LLM değerlendirme, RAG, prompt</p>
+            <p data-en="xAI · LLM evaluation, RAG, prompting">xAI · LLM değerlendirme, RAG, prompt</p>
           </article>
           <article>
             <span class="n">02</span>
-            <span class="k">Odak</span>
-            <strong>AI Mühendisliği · Security</strong>
+            <span class="k" data-en="Focus">Odak</span>
+            <strong data-en="AI Engineering · Security">AI Mühendisliği · Security</strong>
             <p>LLM eval, RAG, SIEM, pentest</p>
           </article>
           <article>
             <span class="n">03</span>
-            <span class="k">Konum</span>
-            <strong>İzmir, Türkiye</strong>
-            <p>Türkçe · İngilizce · Almanca (temel)</p>
+            <span class="k" data-en="Location">Konum</span>
+            <strong data-en="Izmir, Türkiye">İzmir, Türkiye</strong>
+            <p data-en="Turkish · English · German (basic)">Türkçe · İngilizce · Almanca (temel)</p>
           </article>
         </aside>
       </section>
@@ -78,47 +77,47 @@
 
       <section class="cv-block reveal">
         <header>
-          <h2><em>01</em> Deneyim</h2>
+          <h2><em>01</em> <span data-en="Experience">Deneyim</span></h2>
         </header>
         <ol class="cv-rows">
           <li>
-            <time>Oca — Tem 2026</time>
+            <time data-en="Jan — Jul 2026">Oca — Tem 2026</time>
             <div>
               <p class="role">AI Tutor</p>
               <p class="org">xAI</p>
-              <p class="bit">Büyük dil modeli çıktılarının değerlendirilmesi; RAG, prompt tasarımı ve rubrik tabanlı kalite ölçümü.</p>
+              <p class="bit" data-en="Evaluation of large language model outputs; RAG, prompt design, and rubric-based quality scoring.">Büyük dil modeli çıktılarının değerlendirilmesi; RAG, prompt tasarımı ve rubrik tabanlı kalite ölçümü.</p>
             </div>
           </li>
           <li>
-            <time>Haz — Eyl 2025</time>
+            <time data-en="Jun — Sep 2025">Haz — Eyl 2025</time>
             <div>
               <p class="role">Software Engineering Intern</p>
-              <p class="org">Tostbang Teknoloji, Diyarbakır</p>
-              <p class="bit">Backend geliştirme: REST API, veritabanı, performans iyileştirme ve kod incelemesi.</p>
+              <p class="org" data-en="Tostbang Teknoloji, Diyarbakır">Tostbang Teknoloji, Diyarbakır</p>
+              <p class="bit" data-en="Backend development: REST APIs, databases, performance work, and code review.">Backend geliştirme: REST API, veritabanı, performans iyileştirme ve kod incelemesi.</p>
             </div>
           </li>
           <li>
-            <time>Haz — Ağu 2021</time>
+            <time data-en="Jun — Aug 2021">Haz — Ağu 2021</time>
             <div>
               <p class="role">IT / ERP Support</p>
-              <p class="org">EFG Energy, Diyarbakır</p>
-              <p class="bit">Ağ altyapısı, kamera güvenlik sistemleri ve masaüstü destek.</p>
+              <p class="org" data-en="EFG Energy, Diyarbakır">EFG Energy, Diyarbakır</p>
+              <p class="bit" data-en="Network infrastructure, camera security systems, and desktop support.">Ağ altyapısı, kamera güvenlik sistemleri ve masaüstü destek.</p>
             </div>
           </li>
           <li>
-            <time>Haz — Ağu 2020</time>
+            <time data-en="Jun — Aug 2020">Haz — Ağu 2020</time>
             <div>
               <p class="role">Information Security Intern</p>
-              <p class="org">Normsight Cyber Security, Diyarbakır</p>
-              <p class="bit">E-ticaret uygulamalarında güvenlik denetimi; WordPress eklenti zafiyetleri ve ödeme süreçleri.</p>
+              <p class="org" data-en="Normsight Cyber Security, Diyarbakır">Normsight Cyber Security, Diyarbakır</p>
+              <p class="bit" data-en="Security review of e-commerce apps: WordPress plugin vulnerabilities and payment flows.">E-ticaret uygulamalarında güvenlik denetimi; WordPress eklenti zafiyetleri ve ödeme süreçleri.</p>
             </div>
           </li>
           <li>
-            <time>Haz — Ağu 2019</time>
+            <time data-en="Jun — Aug 2019">Haz — Ağu 2019</time>
             <div>
               <p class="role">Jr. Front-End Developer</p>
-              <p class="org">3KCREATIVE, Diyarbakır</p>
-              <p class="bit">HTML, CSS ve JavaScript ile arayüz geliştirme; tema ve temel web güvenliği.</p>
+              <p class="org" data-en="3KCREATIVE, Diyarbakır">3KCREATIVE, Diyarbakır</p>
+              <p class="bit" data-en="Interface work in HTML, CSS, and JavaScript; theming and basic web security.">HTML, CSS ve JavaScript ile arayüz geliştirme; tema ve temel web güvenliği.</p>
             </div>
           </li>
         </ol>
@@ -126,20 +125,20 @@
 
       <section class="cv-block reveal">
         <header>
-          <h2><em>02</em> Eğitim</h2>
+          <h2><em>02</em> <span data-en="Education">Eğitim</span></h2>
         </header>
         <ol class="cv-rows">
           <li>
             <time>2021 — 2026</time>
             <div>
-              <p class="role">Yazılım Mühendisliği (İngilizce)</p>
-              <p class="org">Yaşar Üniversitesi, İzmir</p>
+              <p class="role" data-en="Software Engineering (English)">Yazılım Mühendisliği (İngilizce)</p>
+              <p class="org" data-en="Yaşar University, Izmir">Yaşar Üniversitesi, İzmir</p>
             </div>
           </li>
           <li>
             <time>2017 — 2021</time>
             <div>
-              <p class="role">Vali Aydın Arslan Fen Lisesi</p>
+              <p class="role" data-en="Vali Aydın Arslan Science High School">Vali Aydın Arslan Fen Lisesi</p>
               <p class="org">Diyarbakır</p>
             </div>
           </li>
@@ -148,35 +147,35 @@
 
       <section class="cv-block reveal">
         <header>
-          <h2><em>03</em> Seçilmiş işler</h2>
-          <a class="all" href="isler.html">Tümü</a>
+          <h2><em>03</em> <span data-en="Selected work">Seçilmiş işler</span></h2>
+          <a class="all" href="isler.html" data-en="All">Tümü</a>
         </header>
         <div class="work-board">
           <a class="card feat" href="https://github.com/r00twr3nch/sinyal" target="_blank" rel="noopener">
             <span class="idx">01</span>
             <h3>Sinyal</h3>
-            <p>Gerçek zamanlı, gizli görev mekanikli çok oyunculu web uygulaması.</p>
+            <p data-en="A real-time multiplayer web game with hidden-role mechanics.">Gerçek zamanlı, gizli görev mekanikli çok oyunculu web uygulaması.</p>
             <div class="chips"><span>TypeScript</span><span>React</span><span>Socket.IO</span></div>
             <span class="more">GitHub →</span>
           </a>
           <a class="card" href="https://github.com/r00twr3nch/kiler-app" target="_blank" rel="noopener">
             <span class="idx">02</span>
             <h3>Kiler</h3>
-            <p>Günlük kullanım için TypeScript ile yazılmış yardımcı uygulama.</p>
+            <p data-en="A TypeScript utility app for day-to-day use.">Günlük kullanım için TypeScript ile yazılmış yardımcı uygulama.</p>
             <div class="chips"><span>TypeScript</span></div>
             <span class="more">GitHub →</span>
           </a>
           <a class="card" href="https://github.com/r00twr3nch/TaxiApp" target="_blank" rel="noopener">
             <span class="idx">03</span>
             <h3>TaxiApp</h3>
-            <p>C# ile geliştirilmiş taksi yönetim uygulaması.</p>
+            <p data-en="A taxi-management app written in C#.">C# ile geliştirilmiş taksi yönetim uygulaması.</p>
             <div class="chips"><span>C#</span></div>
             <span class="more">GitHub →</span>
           </a>
           <a class="card" href="https://github.com/r00twr3nch/Internship_Part3" target="_blank" rel="noopener">
             <span class="idx">04</span>
-            <h3>Lab & staj</h3>
-            <p>MongoDB, PostgreSQL ve C# üzerine staj çalışma notları.</p>
+            <h3 data-en="Lab & internship">Lab & staj</h3>
+            <p data-en="Internship notes on MongoDB, PostgreSQL, and C#.">MongoDB, PostgreSQL ve C# üzerine staj çalışma notları.</p>
             <div class="chips"><span>C#</span><span>MongoDB</span><span>PostgreSQL</span></div>
             <span class="more">GitHub →</span>
           </a>
@@ -215,7 +214,7 @@
 
       <section class="cv-block contact-band reveal">
         <header>
-          <h2><em>05</em> İletişim</h2>
+          <h2><em>05</em> <span data-en="Contact">İletişim</span></h2>
         </header>
         <a class="mail-xl" href="mailto:yunusemre.durak@icloud.com">yunusemre.durak@icloud.com</a>
         <div class="cta">
@@ -232,6 +231,6 @@
     </footer>
   </div>
   <a class="flip" href="yazilar.html" aria-label="Kenar">☾</a>
-  <script src="site.js?v=15"></script>
+  <script src="site.js?v=16"></script>
 </body>
 </html>

@@ -666,6 +666,22 @@ body.face .mark.holding {
 }
 body.face nav a::after { content: none !important; }
 body.face nav a.on { color: var(--ink); }
+.lang-toggle {
+  font-family: var(--sans);
+  font-size: .7rem;
+  letter-spacing: .18em;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--brass);
+  padding: .32rem .55rem;
+  cursor: pointer;
+  transition: border-color .2s, color .2s, background .2s;
+}
+.lang-toggle:hover {
+  border-color: var(--brass);
+  color: var(--ink);
+  background: rgba(196,165,116,.08);
+}
 .top-live {
   display: flex;
   align-items: center;

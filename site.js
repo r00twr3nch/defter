@@ -16,17 +16,52 @@
   })();
   const tickClock = () => {
     if (!hourEl) return;
-    hourEl.textContent = new Intl.DateTimeFormat("tr-TR", {
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: false,
-      timeZone: "Europe/Istanbul",
-    }).format(new Date());
+    hourEl.textContent = new Intl.DateTimeFormat(
+      document.documentElement.lang === "en" ? "en-GB" : "tr-TR",
+      {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false,
+        timeZone: "Europe/Istanbul",
+      }
+    ).format(new Date());
   };
   tickClock();
   setInterval(tickClock, 20000);
 
   document.body.classList.add("ready");
+
+  const applyLang = (lang) => {
+    const en = lang === "en";
+    document.documentElement.lang = en ? "en" : "tr";
+    document.querySelectorAll("[data-en]").forEach((el) => {
+      if (el.dataset.tr == null) el.dataset.tr = el.innerHTML;
+      el.innerHTML = en ? el.dataset.en : el.dataset.tr;
+    });
+    const btn = document.querySelector(".lang-toggle");
+    if (btn) {
+      btn.textContent = en ? "TR" : "EN";
+      btn.setAttribute("aria-label", en ? "Türkçe" : "English");
+    }
+    try { localStorage.setItem("yed-lang", en ? "en" : "tr"); } catch (_) {}
+    tickClock();
+  };
+
+  if (document.body.classList.contains("i18n")) {
+    let lang = "tr";
+    const q = new URLSearchParams(location.search).get("lang");
+    if (q === "en" || q === "tr") lang = q;
+    else {
+      try { lang = localStorage.getItem("yed-lang") === "en" ? "en" : "tr"; } catch (_) {}
+    }
+    applyLang(lang);
+    const toggle = document.querySelector(".lang-toggle");
+    if (toggle) {
+      toggle.addEventListener("click", () => {
+        applyLang(document.documentElement.lang === "en" ? "tr" : "en");
+      });
+    }
+  }
 
   const openKenar = () => {
     if (kenar) return;
