@@ -616,6 +616,22 @@ body.kenar .lamp-hit::after {
   transition: opacity .8s ease .4s;
 }
 .kenar-back:hover { color: var(--ink); }
+body.kenar .watch {
+  position: fixed;
+  z-index: 22;
+  left: 1.45rem;
+  bottom: 1.35rem;
+  margin: 0;
+  font-family: var(--hand);
+  font-size: 1.5rem;
+  color: var(--brass);
+  opacity: 0;
+  pointer-events: none;
+  transform: rotate(-7deg);
+  transition: opacity .8s ease .5s;
+}
+body.kenar.lit .watch,
+html.prelit body.kenar .watch { opacity: .8; }
 
 body.kenar.lit .stage-img,
 html.prelit body.kenar .stage-img {

@@ -14,17 +14,37 @@
     host.insertAdjacentHTML("beforeend", ' · <span class="hour"></span>');
     return host.querySelector(".hour");
   })();
+  const watchEl = document.querySelector(".watch");
+  const hourPhrase = (h) => {
+    if (h < 4) return "gecenin körü.";
+    if (h < 6) return "seher vakti.";
+    if (h < 12) return "sabahın körü.";
+    if (h < 18) return "gündüz de yanar.";
+    return "gece vakti.";
+  };
   const tickClock = () => {
-    if (!hourEl) return;
-    hourEl.textContent = new Intl.DateTimeFormat(
-      document.documentElement.lang === "en" ? "en-GB" : "tr-TR",
-      {
-        hour: "2-digit",
-        minute: "2-digit",
-        hour12: false,
-        timeZone: "Europe/Istanbul",
-      }
-    ).format(new Date());
+    const now = new Date();
+    if (hourEl) {
+      hourEl.textContent = new Intl.DateTimeFormat(
+        document.documentElement.lang === "en" ? "en-GB" : "tr-TR",
+        {
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false,
+          timeZone: "Europe/Istanbul",
+        }
+      ).format(now);
+    }
+    if (watchEl) {
+      const h = Number(
+        new Intl.DateTimeFormat("tr-TR", {
+          hour: "numeric",
+          hour12: false,
+          timeZone: "Europe/Istanbul",
+        }).format(now)
+      );
+      watchEl.textContent = hourPhrase(h);
+    }
   };
   tickClock();
   setInterval(tickClock, 20000);
