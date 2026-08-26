@@ -4,20 +4,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Yazılar — Yunus Emre Durak</title>
-  <meta name="description" content="Teknik notlar: lab, araç, kısa yazı.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='28' fill='none' stroke='%23d4b07a' stroke-width='3'/><path d='M22 40c8-16 22-16 22-4' fill='none' stroke='%23d4b07a' stroke-width='3'/></svg>">
+  <meta name="description" content="Yazılım, yapay zekâ ve bilgi güvenliği üzerine yazılar.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%230b0a09'/><text x='32' y='42' text-anchor='middle' font-family='Georgia' font-size='18' fill='%23c4a574'>YED</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=14">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=15">
 </head>
 <body class="face">
-    <div class="progress" aria-hidden="true"></div>
-<div class="mesh" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"></div>
+  <div class="mesh" aria-hidden="true"></div>
   <div class="grid-bg" aria-hidden="true"></div>
   <div class="shell">
-
-                <header class="top">
+    <header class="top">
       <a class="mark" href="index.html">YED</a>
       <nav>
         <a href="index.html">Ana</a>
@@ -28,39 +27,51 @@
       <p class="top-live"><span class="pulse"></span> İzmir · <span class="hour"></span></p>
     </header>
 
-    <main class="page narrow">
-      <p class="section-label">Yazılar</p>
-      <h1>Teknik notlar</h1>
-      <p class="lede">Backend, API tasarımı, güvenlik ve model değerlendirmesi üzerine kısa notlar.</p>
+    <main class="blog">
+      <header class="blog-head">
+        <p class="section-label">Blog</p>
+        <h1>Yazılar</h1>
+        <p class="lede">Yapay zekâ, güvenlik ve yazılım üzerine yayımlanan yazılar.</p>
+      </header>
 
-      <article class="note" id="ciktiyi-tartmak">
-        <time datetime="2026-07-12">12.07.2026</time>
+      <a class="post-feat reveal in" href="ciktiyi-tartmak.html">
+        <div class="post-meta"><span class="tag">AI</span><time datetime="2026-07-12">12 Tem 2026 · 6 dk</time></div>
         <h2>Çıktıyı tartmak</h2>
-        <p>Dil modeli değerlendirmesinde tek bir uzun prompt yerine kısa, tekrarlanabilir bir rubrik kullanıyorum: doğru mu, işe yarar mı, zarar verir mi. Belirsiz bir evet, net bir retten daha maliyetlidir.</p>
-      </article>
-      <article class="note" id="dar-api">
-        <time datetime="2025-09-04">04.09.2025</time>
-        <h2>Dar API</h2>
-        <p>Geniş sözleşmeler kırılgan değişiklik üretir. Dar tutulan bir API ve “önce sorgu, sonra şema” yaklaşımı bakım maliyetini düşürür.</p>
-      </article>
-      <article class="note" id="imza-sonra-paket">
-        <time datetime="2026-04-27">27.04.2026</time>
-        <h2>İmza, sonra paket</h2>
-        <p>SIEM incelemesinde önce imza, sonra yük. Gürültülü uyarılar analisti yorar; sinyal/gürültü oranını korumak önceliktir.</p>
-      </article>
-      <article class="note" id="readme">
-        <time datetime="2026-03-18">18.03.2026</time>
-        <h2>README’siz iş</h2>
-        <p>Her deponun niyeti README’de yazılı olmalı. Belgesiz iş devralınamaz.</p>
-      </article>
+        <p>Büyük dil modellerini değerlendirirken uzun prompt’lar yerine kısa, tekrarlanabilir bir rubrik kullanıyorum. Doğru mu, işe yarar mı, zarar verir mi — üç soru, belirsiz bir evetten daha ucuzdur.</p>
+        <span class="more">Yazıyı oku →</span>
+      </a>
+
+      <ul class="post-list">
+        <li class="reveal">
+          <a href="imza-sonra-paket.html">
+            <div class="post-meta"><span class="tag">Güvenlik</span><time datetime="2026-04-27">27 Nis 2026 · 5 dk</time></div>
+            <h3>İmza, sonra paket</h3>
+            <p>SIEM incelemesinde önce imza, sonra yük. Gürültülü uyarılar analisti yorar; sinyal/gürültü oranını korumak bir önceliktir.</p>
+          </a>
+        </li>
+        <li class="reveal">
+          <a href="dar-api.html">
+            <div class="post-meta"><span class="tag">Yazılım</span><time datetime="2025-09-04">4 Eyl 2025 · 5 dk</time></div>
+            <h3>Dar API</h3>
+            <p>Geniş sözleşmeler kırılgan değişiklik üretir. Dar tutulan bir arayüz ve “önce sorgu, sonra şema” yaklaşımı bakım maliyetini düşürür.</p>
+          </a>
+        </li>
+        <li class="reveal">
+          <a href="readme-siz-is.html">
+            <div class="post-meta"><span class="tag">Mühendislik</span><time datetime="2026-03-18">18 Mar 2026 · 4 dk</time></div>
+            <h3>README’siz iş</h3>
+            <p>Her deponun niyeti README’de yazılı olmalı. Belgesiz iş devralınamaz; altı ay sonra yazan kişi bile yabancılaşır.</p>
+          </a>
+        </li>
+      </ul>
     </main>
+
     <footer>
       <span>© Yunus Emre Durak</span>
       <span class="foot-links"><a href="https://github.com/r00twr3nch">github.com/r00twr3nch</a></span>
     </footer>
   </div>
-  <script src="site.js?v=14"></script>
-
   <a class="flip" href="yazilar.html" aria-label="Kenar">☾</a>
+  <script src="site.js?v=15"></script>
 </body>
 </html>

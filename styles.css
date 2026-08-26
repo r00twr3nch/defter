@@ -1055,3 +1055,82 @@ body.kenar .flip { display: none; }
   .flip { width: 52px; height: 52px; right: 1rem; bottom: 1.2rem; }
 }
 
+.blog { padding: 0 0 3.5rem; }
+.blog-head { padding: 3.2rem 0 1.8rem; max-width: 38rem; }
+.blog-head h1 { font-size: clamp(2.6rem, 6vw, 4.2rem); margin: 0 0 .8rem; }
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .55rem 1rem;
+  align-items: center;
+  margin-bottom: .7rem;
+  font-size: .78rem;
+  letter-spacing: .08em;
+  color: var(--mute);
+}
+.tag {
+  font-size: .68rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--brass);
+  border: 1px solid var(--line);
+  padding: .18rem .5rem;
+}
+.post-feat {
+  display: block;
+  padding: 1.8rem 1.7rem 1.5rem;
+  border: 1px solid var(--line);
+  background: rgba(20, 18, 16, .55);
+  margin-bottom: 1.2rem;
+  transition: border-color .25s, transform .25s, background .25s;
+}
+.post-feat:hover {
+  border-color: var(--brass);
+  transform: translateY(-3px);
+  background: #1c1915;
+}
+.post-feat h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 500;
+  margin: 0 0 .7rem;
+  letter-spacing: -.03em;
+}
+.post-feat p { color: var(--mute); margin: 0 0 1.1rem; max-width: 38rem; line-height: 1.6; }
+.post-list { list-style: none; padding: 0; margin: 0; }
+.post-list a {
+  display: block;
+  padding: 1.35rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.post-list h3 {
+  font-family: var(--serif);
+  font-size: 1.45rem;
+  font-weight: 500;
+  margin: 0 0 .4rem;
+}
+.post-list p { margin: 0; color: var(--mute); font-size: .95rem; max-width: 38rem; }
+.post-list a:hover h3 { color: var(--brass); }
+
+.post { padding: 3rem 0 3.5rem; max-width: 42rem; }
+.post h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); margin: 0 0 .6rem; }
+.post .kicker a { color: var(--brass); }
+.post-byline { font-size: .84rem; color: var(--mute); margin: 0 0 1.4rem; }
+.post-body p {
+  font-size: 1.08rem;
+  line-height: 1.8;
+  color: #e8e2d8;
+  margin: 0 0 1.15rem;
+}
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2.4rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: .9rem;
+  color: var(--brass);
+}
+.post-nav a:hover { color: var(--ink); }
+
