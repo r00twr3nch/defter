@@ -1,6 +1,7 @@
 (() => {
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const fine = window.matchMedia("(pointer:fine)").matches;
+  const kenar = document.body.classList.contains("kenar");
   const home = document.body.classList.contains("home");
   const stagePic = document.querySelector(".stage picture") || document.querySelector(".stage-img");
   const glow = document.querySelector(".glow");
@@ -25,33 +26,27 @@
   tickClock();
   setInterval(tickClock, 20000);
 
-  const scribble = document.querySelector(".scribble");
-  if (scribble && home) {
-    const h = Number(
-      new Intl.DateTimeFormat("tr-TR", { hour: "numeric", hour12: false, timeZone: "Europe/Istanbul" }).format(new Date())
-    );
-    scribble.textContent =
-      h < 5 ? "seher vakti." : h < 12 ? "sabahın körü." : h < 18 ? "gündüz de yanar." : "gece vakti.";
-  }
-
   document.body.classList.add("ready");
 
   if (!reduce) {
-    document.querySelectorAll('a[href$=".html"]').forEach((a) => {
+    document.querySelectorAll('a[href$=".html"], a[href*=".html#"]').forEach((a) => {
       const url = new URL(a.href, location.href);
       if (url.origin !== location.origin) return;
       a.addEventListener("click", (e) => {
         if (e.metaKey || e.ctrlKey || e.shiftKey || a.target === "_blank") return;
-        if (url.pathname === location.pathname) return;
+        if (url.pathname === location.pathname && !url.hash) return;
+        if (url.hash && url.pathname === location.pathname) return;
         e.preventDefault();
         document.body.classList.add("leaving");
-        setTimeout(() => { location.href = a.href; }, 280);
+        setTimeout(() => { location.href = a.href; }, 220);
       });
     });
   }
 
+  if (!kenar) return;
+
   const mark = document.querySelector(".mark");
-  if (mark && home) {
+  if (mark) {
     mark.addEventListener("click", (e) => {
       e.preventDefault();
       document.body.classList.toggle("dim");
@@ -65,16 +60,11 @@
     clearTimeout(flare._t);
     flare._t = setTimeout(() => document.body.classList.remove("flare"), 900);
   };
-  document.querySelectorAll(".card").forEach((card) => {
-    card.addEventListener("mouseenter", () => document.body.classList.add("warm"));
-    card.addEventListener("mouseleave", () => document.body.classList.remove("warm"));
-  });
   const hit = document.querySelector(".lamp-hit");
   if (hit) hit.addEventListener("click", flare);
 
   let px = innerWidth * 0.72, py = innerHeight * 0.42;
   let lx = px, ly = py, sx = px, sy = py;
-  let onLink = false;
   const lantern = document.createElement("div");
   lantern.className = "lantern";
   lantern.setAttribute("aria-hidden", "true");
@@ -89,8 +79,7 @@
       px = e.clientX;
       py = e.clientY;
       const t = e.target;
-      onLink = !!(t && t.closest && t.closest("a, button, .lamp-hit"));
-      lantern.classList.toggle("is-link", onLink);
+      lantern.classList.toggle("is-link", !!(t && t.closest && t.closest("a, button, .lamp-hit")));
     }, { passive: true });
     addEventListener("mouseleave", () => {
       lantern.style.opacity = "0";
@@ -104,7 +93,7 @@
 
   const c = document.getElementById("dust");
   const ctx = c && !reduce ? c.getContext("2d") : null;
-  const n = innerWidth < 800 ? 24 : home ? 88 : 40;
+  const n = innerWidth < 800 ? 24 : 56;
   const dots = ctx
     ? Array.from({ length: n }, () => ({
         x: Math.random(),
@@ -120,15 +109,10 @@
 
   const loop = () => {
     const tx = px / innerWidth, ty = py / innerHeight;
-    const dx = (tx - 0.5) * (home ? 22 : 10);
-    const dy = (ty - 0.5) * (home ? 14 : 8);
-    if (stagePic) {
-      stagePic.style.transform = `translate(${dx}px, ${dy}px) scale(1.05)`;
-    }
-    if (glow) {
-      glow.style.translate = `${dx * 1.4}px ${dy * 1.4}px`;
-    }
-
+    const dx = (tx - 0.5) * 10;
+    const dy = (ty - 0.5) * 8;
+    if (stagePic) stagePic.style.transform = `translate(${dx}px, ${dy}px) scale(1.05)`;
+    if (glow) glow.style.translate = `${dx * 1.4}px ${dy * 1.4}px`;
     if (useLantern) {
       lx += (px - lx) * 0.38;
       ly += (py - ly) * 0.38;
@@ -137,7 +121,6 @@
       lantern.style.transform = `translate(${lx}px, ${ly}px)`;
       spot.style.transform = `translate(${sx}px, ${sy}px)`;
     }
-
     if (ctx) {
       ctx.clearRect(0, 0, c.width, c.height);
       const wind = (tx - 0.5) * 0.0009;
@@ -147,11 +130,9 @@
         if (d.y < 0) { d.y = 1; d.x = Math.random(); }
         if (d.x < 0) d.x += 1;
         if (d.x > 1) d.x -= 1;
-        const x = c.width * (home ? 0.36 + d.x * 0.62 : 0.55 + d.x * 0.45) + dx * 0.6;
-        const y = c.height * (0.06 + d.y * 0.84) + dy * 0.4;
         ctx.fillStyle = `rgba(255,236,200,${d.a})`;
         ctx.beginPath();
-        ctx.arc(x, y, d.r, 0, Math.PI * 2);
+        ctx.arc(c.width * (0.55 + d.x * 0.45) + dx * 0.6, c.height * (0.06 + d.y * 0.84) + dy * 0.4, d.r, 0, Math.PI * 2);
         ctx.fill();
       }
     }
