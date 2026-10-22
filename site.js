@@ -227,8 +227,8 @@
     let py = -9999;
     const delphinusPoints = () => {
       const figure = figures.find((item) => item.name === "Delphinus");
-      const span = Math.min(w, h) * figure.scale * (narrow() ? 0.82 : 1);
-      const place = narrow() ? [0.90, 0.78] : figure.at;
+      const span = Math.min(w, h) * figure.scale * (narrow() ? 1.35 : 1);
+      const place = narrow() ? [0.80, 0.175] : figure.at;
       const ox = place[0] * w;
       const oy = place[1] * h - scrollY * figure.depth * 0.22;
       return figure.stars.map(([x, y]) => ({
@@ -396,9 +396,9 @@
       shown(figures).sort((a, b) => a.depth - b.depth).forEach((figure) => paint(figure, h));
       function paint(figure, field, origin = 0) {
         const depth = figure.depth;
-        const span = Math.min(w, h) * figure.scale * breathe * (narrow() ? 0.82 : 1);
+        const span = Math.min(w, h) * figure.scale * breathe * (narrow() ? (figure.name === "Delphinus" ? 1.35 : 0.82) : 1);
         const pinned = narrow() && figure.name === "Delphinus";
-        const place = pinned ? [0.90, 0.78] : figure.at;
+        const place = pinned ? [0.80, 0.175] : figure.at;
         const ox = place[0] * w + (pinned ? 0 : (mx - 0.5) * 22 * depth);
         const oy = origin + place[1] * (field - origin) + (pinned ? 0 : (my - 0.5) * 16 * depth) - (pinned ? scrollY : sy) * depth * 0.22;
         const pts = figure.stars.map(([x, y]) => ({
@@ -412,9 +412,9 @@
           pts.forEach((p) => { best = Math.min(best, Math.hypot(px - p.x, py - p.y)); });
           near = Math.max(0, Math.min(1, (150 - best) / 110));
         }
-        const beacon = narrow() && figure.name === "Delphinus" ? 0.5 + Math.sin(frame * 1.6) * 0.5 : 0;
+        const beacon = narrow() && figure.name === "Delphinus" ? 0.72 + Math.sin(frame * 1.6) * 0.28 : 0;
         const pulse = near > 0 ? 0.5 + Math.sin(frame * 2.4) * 0.5 : beacon;
-        const lit = near > 0 ? near * (0.55 + pulse * 0.45) : beacon * 0.85;
+        const lit = near > 0 ? near * (0.55 + pulse * 0.45) : beacon;
         ctx.lineWidth = 1 + lit * 0.8;
         figure.links.forEach(([a, b], i) => {
           ctx.strokeStyle = lit
