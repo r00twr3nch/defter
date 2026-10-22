@@ -120,6 +120,7 @@ h1 {
 h1 span { display: block; }
 h1 .script { font-family: var(--script); color: var(--gold); letter-spacing: 0; font-size: .86em; }
 .lede { max-width: 34rem; font-size: 1.16rem; color: var(--muted); }
+.aside { margin: .35rem 0 0; color: var(--gold); font-style: italic; }
 .cta { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.5rem; }
 .btn {
   display: inline-flex; align-items: center; justify-content: center;

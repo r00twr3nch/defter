@@ -5,7 +5,8 @@
 
   const dict = {
     "Yazılım mühendisi": "Software engineer",
-    "Yapay zekâ mühendisliği ve bilgi güvenliği. Yaşar Üniversitesi Yazılım Mühendisliği mezunu. Her yunus yeryüzünde değildir.": "AI engineering and information security. Software Engineering graduate, Yaşar University. Not every dolphin is of the earth.",
+    "Yapay zekâ mühendisliği ve bilgi güvenliği. Yaşar Üniversitesi Yazılım Mühendisliği mezunu.": "AI engineering and information security. Software Engineering graduate, Yaşar University.",
+    "Her yunus yeryüzünde değildir.": "Not every dolphin is of the earth.",
     "Yapay zekâ mühendisliği ve bilgi güvenliği. Yaşar Üniversitesi Yazılım Mühendisliği mezunu.": "AI engineering and information security. Software Engineering graduate, Yaşar University.",
     "Özgeçmiş": "Resume",
     "Yazılar": "Writing",
