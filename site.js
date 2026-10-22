@@ -161,7 +161,8 @@
     const ctx = canvas.getContext("2d");
     const dpr = Math.min(devicePixelRatio || 1, 2);
     let w = 0, h = 0, mx = 0.62, my = 0.34, tx = mx, ty = my, sy = 0;
-    const count = innerWidth < 800 ? 110 : 190;
+    const narrow = () => innerWidth < 860;
+    const count = innerWidth < 800 ? 70 : 190;
     const stars = Array.from({ length: count }, () => ({
       x: Math.random(),
       y: Math.random(),
@@ -192,16 +193,18 @@
       { name: "Ursa Major", at: [0.50, 0.16], scale: 0.34, depth: 0.22, stars: [[0.362, 0.31], [0.547, 0.249], [0.549, 0.351], [0.402, 0.385], [0.263, 0.295], [0.187, 0.277], [0.08, 0.332], [0.404, 0.501], [0.472, 0.784], [0.472, 0.812], [0.516, 0.576], [0.682, 0.627], [0.698, 0.599], [0.743, 0.2], [0.882, 0.188], [0.722, 0.284], [0.74, 0.377], [0.804, 0.407], [0.92, 0.438], [0.913, 0.459]], links: [[0, 1], [1, 2], [2, 3], [3, 0], [0, 4], [4, 5], [5, 6], [3, 7], [7, 8], [8, 9], [7, 10], [10, 11], [10, 12], [1, 13], [13, 14], [14, 15], [15, 2], [2, 16], [16, 17], [17, 18], [19, 17]] },
       { name: "Scorpius", at: [0.86, 0.58], scale: 0.24, depth: 0.48, stars: [[0.906, 0.311], [0.905, 0.185], [0.87, 0.08], [0.726, 0.276], [0.658, 0.302], [0.604, 0.365], [0.49, 0.585], [0.478, 0.722], [0.461, 0.878], [0.345, 0.914], [0.178, 0.92], [0.094, 0.826], [0.123, 0.782], [0.176, 0.705]], links: [[0, 1], [1, 2], [1, 3], [3, 4], [4, 5], [5, 6], [6, 7], [7, 8], [8, 9], [9, 10], [10, 11], [11, 12], [12, 13]] },
       { name: "Aquila", at: [0.30, 0.72], scale: 0.16, depth: 0.66, stars: [[0.418, 0.227], [0.367, 0.305], [0.316, 0.416], [0.136, 0.739], [0.347, 0.659], [0.65, 0.564], [0.864, 0.08], [0.864, 0.92]], links: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 1], [1, 5], [5, 7]] },
+      { name: "Capricornus", at: [0.48, 0.82], scale: 0.16, depth: 0.58, stars: [[0.92, 0.10], [0.84, 0.30], [0.62, 0.36], [0.42, 0.34], [0.24, 0.30], [0.08, 0.26], [0.16, 0.48], [0.26, 0.62], [0.40, 0.78], [0.58, 0.92], [0.72, 0.72]], links: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 7], [7, 8], [8, 9], [9, 10], [10, 1]] },
       { name: "Pegasus", at: [0.28, 0.20], scale: 0.26, depth: 0.40, stars: [[0.744, 0.185], [0.581, 0.258], [0.473, 0.306], [0.15, 0.255], [0.08, 0.576], [0.458, 0.609], [0.56, 0.682], [0.59, 0.714], [0.774, 0.815], [0.92, 0.72], [0.544, 0.389], [0.562, 0.414], [0.773, 0.366], [0.889, 0.351]], links: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 7], [7, 8], [8, 9], [5, 2], [2, 10], [10, 11], [11, 12], [12, 13]] },
       { name: "Delphinus", at: [0.58, 0.46], scale: 0.14, depth: 0.92, stars: [[0.784, 0.92], [0.597, 0.347], [0.509, 0.118], [0.216, 0.08], [0.349, 0.264]], links: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 1]] },
+      { name: "Equuleus", at: [0.74, 0.38], scale: 0.11, depth: 0.74, stars: [[0.08, 0.92], [0.27, 0.62], [0.86, 0.24], [0.92, 0.08], [0.22, 0.14]], links: [[0, 1], [1, 2], [2, 3], [1, 4]] },
       { name: "Perseus", at: [0.40, 0.34], scale: 0.20, depth: 0.30, stars: [[0.224, 0.912], [0.15, 0.92], [0.126, 0.781], [0.147, 0.635], [0.238, 0.552], [0.264, 0.369], [0.302, 0.357], [0.374, 0.3], [0.477, 0.169], [0.541, 0.08], [0.535, 0.191], [0.461, 0.307], [0.467, 0.474], [0.481, 0.612], [0.462, 0.66], [0.505, 0.685], [0.547, 0.653], [0.538, 0.605], [0.137, 0.266], [0.08, 0.327], [0.112, 0.357], [0.604, 0.308], [0.92, 0.185]], links: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 7], [7, 8], [8, 9], [9, 10], [10, 11], [11, 12], [12, 13], [13, 14], [14, 15], [15, 16], [16, 17], [17, 13], [18, 19], [19, 20], [20, 5], [11, 21], [21, 22]] },
       { name: "Andromeda", at: [0.66, 0.68], scale: 0.28, depth: 0.26, stars: [[0.08, 0.302], [0.309, 0.517], [0.466, 0.647], [0.638, 0.687], [0.358, 0.83], [0.417, 0.812], [0.469, 0.687], [0.48, 0.575], [0.753, 0.311], [0.92, 0.301], [0.739, 0.285], [0.742, 0.23], [0.381, 0.449], [0.419, 0.384], [0.341, 0.221], [0.228, 0.17], [0.706, 0.236]], links: [[0, 1], [1, 2], [2, 3], [4, 5], [5, 6], [6, 2], [2, 7], [7, 8], [8, 9], [8, 10], [10, 11], [1, 12], [12, 13], [13, 14], [14, 15], [10, 16]] },
-      { name: "Gemini", at: [0.56, 0.58], scale: 0.18, depth: 0.56, stars: [[0.92, 0.483], [0.844, 0.488], [0.642, 0.39], [0.391, 0.181], [0.188, 0.106], [0.08, 0.258], [0.161, 0.311], [0.3, 0.52], [0.453, 0.581], [0.714, 0.748], [0.642, 0.894], [0.314, 0.745]], links: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 7], [7, 8], [8, 9], [9, 10], [7, 11]] },
+      { name: "Gemini", at: [0.47, 0.58], scale: 0.18, depth: 0.56, stars: [[0.92, 0.483], [0.844, 0.488], [0.642, 0.39], [0.391, 0.181], [0.188, 0.106], [0.08, 0.258], [0.161, 0.311], [0.3, 0.52], [0.453, 0.581], [0.714, 0.748], [0.642, 0.894], [0.314, 0.745]], links: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 7], [7, 8], [8, 9], [9, 10], [7, 11]] },
       { name: "Leo", at: [0.10, 0.10], scale: 0.13, depth: 0.60, stars: [[0.783, 0.293], [0.786, 0.433], [0.697, 0.52], [0.328, 0.548], [0.08, 0.396], [0.319, 0.4], [0.716, 0.625], [0.87, 0.707], [0.92, 0.645]], links: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 0], [2, 6], [6, 7], [7, 8]] },
       { name: "Boötes", at: [0.66, 0.14], scale: 0.16, depth: 0.36, stars: [[0.719, 0.169], [0.679, 0.186], [0.568, 0.198], [0.484, 0.446], [0.484, 0.624], [0.357, 0.676], [0.281, 0.524], [0.417, 0.373], [0.43, 0.08], [0.547, 0.796], [0.553, 0.919], [0.512, 0.92]], links: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 7], [7, 2], [2, 8], [4, 9], [9, 10], [10, 11], [11, 9]] }
     ];
     const lower = [
-      { name: "Corona Borealis", at: [0.12, 0.08], scale: 0.16, depth: 0.86, stars: [[0.786, 0.805], [0.92, 0.55], [0.753, 0.271], [0.547, 0.22], [0.37, 0.195], [0.166, 0.292], [0.08, 0.637]], links: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6]] },
+      { name: "Corona Borealis", at: [0.02, 0.02], scale: 0.14, depth: 0.86, stars: [[0.786, 0.805], [0.92, 0.55], [0.753, 0.271], [0.547, 0.22], [0.37, 0.195], [0.166, 0.292], [0.08, 0.637]], links: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6]] },
       { name: "Lepus", at: [0.38, 0.22], scale: 0.22, depth: 0.72, stars: [[0.08, 0.656], [0.216, 0.706], [0.351, 0.67], [0.552, 0.496], [0.83, 0.587], [0.92, 0.222], [0.613, 0.323], [0.392, 0.224], [0.297, 0.314], [0.831, 0.778], [0.74, 0.766]], links: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 7], [7, 8], [9, 4], [4, 10]] },
       { name: "Ursa Minor", at: [0.66, 0.10], scale: 0.18, depth: 0.80, stars: [[0.467, 0.342], [0.375, 0.257], [0.55, 0.08], [0.63, 0.199], [0.37, 0.545], [0.394, 0.753], [0.452, 0.92]], links: [[0, 1], [1, 2], [2, 3], [3, 0], [0, 4], [4, 5], [5, 6]] },
       { name: "Cancer", at: [0.90, 0.28], scale: 0.17, depth: 0.84, stars: [[0.277, 0.192], [0.424, 0.463], [0.438, 0.606], [0.407, 0.92], [0.723, 0.08]], links: [[0, 1], [1, 2], [2, 3], [1, 4]] },
@@ -224,39 +227,62 @@
     let py = -9999;
     const delphinusPoints = () => {
       const figure = figures.find((item) => item.name === "Delphinus");
-      const span = Math.min(w, h) * figure.scale;
-      const ox = figure.at[0] * w + (mx - 0.5) * 22 * figure.depth;
-      const oy = figure.at[1] * h + (my - 0.5) * 16 * figure.depth - sy * figure.depth * 0.22;
+      const span = Math.min(w, h) * figure.scale * (narrow() ? 0.82 : 1);
+      const place = narrow() ? [0.90, 0.78] : figure.at;
+      const ox = place[0] * w;
+      const oy = place[1] * h - scrollY * figure.depth * 0.22;
       return figure.stars.map(([x, y]) => ({
         x: ox + (x - 0.5) * span,
         y: oy + (y - 0.5) * span * 0.86
       }));
     };
     const home = location.pathname === "/";
-    const overDelphinus = (x, y) => delphinusPoints().some((p) => Math.hypot(x - p.x, y - p.y) < 34);
-    if (fine) {
-      addEventListener("pointermove", (e) => {
-        tx = e.clientX / Math.max(w, 1);
-        ty = e.clientY / Math.max(h, 1);
-        px = e.clientX;
-        py = e.clientY;
-        document.body.classList.toggle("on-delphinus", home && overDelphinus(px, py));
-      }, { passive: true });
-      addEventListener("pointerleave", () => {
-        px = -9999;
-        py = -9999;
-        document.body.classList.remove("on-delphinus");
+    const overDelphinus = (x, y) => delphinusPoints().some((p) => Math.hypot(x - p.x, y - p.y) < (narrow() ? 52 : 34));
+    const openHalvet = (x, y) => {
+      if (!home || !overDelphinus(x, y)) return false;
+      const under = document.elementFromPoint(x, y);
+      if (!narrow() && under?.closest("a, button, input, textarea, select, label")) return false;
+      location.href = "/kenar/";
+      return true;
+    };
+    addEventListener("pointermove", (e) => {
+      tx = e.clientX / Math.max(w, 1);
+      ty = e.clientY / Math.max(h, 1);
+      px = e.clientX;
+      py = e.clientY;
+      document.body.classList.toggle("on-delphinus", home && overDelphinus(px, py));
+    }, { passive: true });
+    addEventListener("pointerleave", () => {
+      px = -9999;
+      py = -9999;
+      document.body.classList.remove("on-delphinus");
+    });
+    if (home) {
+      addEventListener("pointerdown", (e) => {
+        if (e.button !== 0) return;
+        openHalvet(e.clientX, e.clientY);
       });
-      if (home) {
-        addEventListener("pointerdown", (e) => {
-          if (e.button !== 0 || !overDelphinus(e.clientX, e.clientY)) return;
-          const under = document.elementFromPoint(e.clientX, e.clientY);
-          if (under?.closest("a, button, input, textarea, select, label")) return;
-          location.href = "/kenar/";
-        });
-      }
     }
     let frame = 0;
+    const meteors = [];
+    let meteorWait = 90 + Math.random() * 220;
+    const spawnMeteor = () => {
+      const fromLeft = Math.random() < 0.55;
+      const startX = fromLeft ? w * (0.05 + Math.random() * 0.55) : w * (0.35 + Math.random() * 0.6);
+      const startY = h * (Math.random() * 0.42);
+      const angle = (fromLeft ? 0.42 : 0.72) + (Math.random() - 0.5) * 0.28;
+      const speed = 7 + Math.random() * 6;
+      meteors.push({
+        x: startX,
+        y: startY,
+        vx: Math.cos(angle) * speed * (fromLeft ? 1 : -1),
+        vy: Math.sin(angle) * speed,
+        life: 0,
+        span: 38 + Math.random() * 28,
+        tail: 70 + Math.random() * 90,
+        gold: Math.random() < 0.35
+      });
+    };
     const draw = () => {
       ctx.clearRect(0, 0, w, h);
       frame += 0.012;
@@ -313,6 +339,39 @@
         ctx.stroke();
       });
       ctx.restore();
+      meteorWait -= 1;
+      if (meteorWait <= 0) {
+        spawnMeteor();
+        if (Math.random() < 0.22) spawnMeteor();
+        meteorWait = 260 + Math.random() * 520;
+      }
+      for (let i = meteors.length - 1; i >= 0; i--) {
+        const m = meteors[i];
+        m.life += 1;
+        m.x += m.vx;
+        m.y += m.vy;
+        const fade = Math.sin(Math.min(1, m.life / m.span) * Math.PI);
+        const len = Math.hypot(m.vx, m.vy) || 1;
+        const trail = ctx.createLinearGradient(
+          m.x, m.y,
+          m.x - (m.vx / len) * m.tail,
+          m.y - (m.vy / len) * m.tail
+        );
+        const head = m.gold ? `rgba(255, 236, 186, ${0.9 * fade})` : `rgba(244, 246, 252, ${0.92 * fade})`;
+        trail.addColorStop(0, head);
+        trail.addColorStop(1, "rgba(244, 246, 252, 0)");
+        ctx.strokeStyle = trail;
+        ctx.lineWidth = 1.4;
+        ctx.beginPath();
+        ctx.moveTo(m.x, m.y);
+        ctx.lineTo(m.x - (m.vx / len) * m.tail, m.y - (m.vy / len) * m.tail);
+        ctx.stroke();
+        ctx.fillStyle = head;
+        ctx.beginPath();
+        ctx.arc(m.x, m.y, 1.5, 0, Math.PI * 2);
+        ctx.fill();
+        if (m.life > m.span || m.x < -120 || m.x > w + 120 || m.y > h + 80) meteors.splice(i, 1);
+      }
       cloud.forEach((mote) => {
         mote.a += mote.turn;
         const px = ox + Math.cos(mote.a) * rx * mote.spread + (mx - 0.5) * 16 * mote.depth;
@@ -329,13 +388,19 @@
       const breathe = 1 + Math.sin(frame * 0.35) * 0.015;
       ctx.font = "italic 14px 'Instrument Serif', serif";
       const page = Math.max(document.documentElement.scrollHeight, h);
-      [...lower].sort((a, b) => a.depth - b.depth).forEach((figure) => paint(figure, page, h * 0.55));
-      [...figures].sort((a, b) => a.depth - b.depth).forEach((figure) => paint(figure, h));
+      const phone = narrow();
+      const shown = (list) => phone
+        ? list.filter((figure) => figure.name === "Delphinus" || figure.name === "Orion" || figure.name === "Lyra" || figure.name === "Scorpius")
+        : list;
+      shown(lower).sort((a, b) => a.depth - b.depth).forEach((figure) => paint(figure, page, h * 0.55));
+      shown(figures).sort((a, b) => a.depth - b.depth).forEach((figure) => paint(figure, h));
       function paint(figure, field, origin = 0) {
         const depth = figure.depth;
-        const span = Math.min(w, h) * figure.scale * breathe;
-        const ox = figure.at[0] * w + (mx - 0.5) * 22 * depth;
-        const oy = origin + figure.at[1] * (field - origin) + (my - 0.5) * 16 * depth - sy * depth * 0.22;
+        const span = Math.min(w, h) * figure.scale * breathe * (narrow() ? 0.82 : 1);
+        const pinned = narrow() && figure.name === "Delphinus";
+        const place = pinned ? [0.90, 0.78] : figure.at;
+        const ox = place[0] * w + (pinned ? 0 : (mx - 0.5) * 22 * depth);
+        const oy = origin + place[1] * (field - origin) + (pinned ? 0 : (my - 0.5) * 16 * depth) - (pinned ? scrollY : sy) * depth * 0.22;
         const pts = figure.stars.map(([x, y]) => ({
           x: ox + (x - 0.5) * span,
           y: oy + (y - 0.5) * span * 0.86
@@ -347,8 +412,9 @@
           pts.forEach((p) => { best = Math.min(best, Math.hypot(px - p.x, py - p.y)); });
           near = Math.max(0, Math.min(1, (150 - best) / 110));
         }
-        const pulse = near > 0 ? 0.5 + Math.sin(frame * 2.4) * 0.5 : 0;
-        const lit = near * (0.55 + pulse * 0.45);
+        const beacon = narrow() && figure.name === "Delphinus" ? 0.5 + Math.sin(frame * 1.6) * 0.5 : 0;
+        const pulse = near > 0 ? 0.5 + Math.sin(frame * 2.4) * 0.5 : beacon;
+        const lit = near > 0 ? near * (0.55 + pulse * 0.45) : beacon * 0.85;
         ctx.lineWidth = 1 + lit * 0.8;
         figure.links.forEach(([a, b], i) => {
           ctx.strokeStyle = lit
@@ -381,7 +447,7 @@
         ctx.fillStyle = lit
           ? `rgba(255, 226, 150, ${0.55 + lit * 0.45})`
           : `rgba(228, 194, 122, ${0.28 + haze * 0.32})`;
-        if (!document.body.classList.contains("halvet")) {
+        if (!document.body.classList.contains("halvet") && !narrow()) {
           ctx.fillText(figure.name, pts[0].x + 10, pts[0].y - 6);
         }
       }

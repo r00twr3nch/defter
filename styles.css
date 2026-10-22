@@ -346,6 +346,15 @@ footer a { color: var(--muted); }
 :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 
 @media (max-width: 860px) {
+  .stage-copy, .ledger, .pair, .works-home, .close {
+    background: linear-gradient(180deg, rgba(4, 7, 13, .78), rgba(4, 7, 13, .55) 18%, rgba(4, 7, 13, .55) 82%, rgba(4, 7, 13, .2));
+    border-radius: 18px;
+  }
+  .stage-copy {
+    max-width: none;
+    padding: 1.35rem 1.15rem 1.55rem;
+    border-radius: 0;
+  }
   .menu { display: block; }
   .top nav {
     display: none; position: absolute; left: 0; right: 0; top: 100%;
@@ -358,7 +367,7 @@ footer a { color: var(--muted); }
   .stage, .pair, .works-home > div, .quad, .ledger li, .folio > li:first-child a { grid-template-columns: 1fr; }
   .folio > li:not(:first-child) a { grid-template-columns: 2.4rem 1fr; }
   .folio > li:not(:first-child) span, .folio > li:not(:first-child) em { grid-column: 2; }
-  .stage { min-height: auto; padding-top: 2.2rem; }
+  .stage { min-height: auto; padding: 0; }
   .orbit { display: none; }
   .compass a { border-right: 0; border-bottom: 1px solid var(--line); }
   .ledger li { gap: .15rem; }
