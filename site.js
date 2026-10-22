@@ -82,17 +82,8 @@
     "Sayfa yok.": "Page not found.",
     "Bu adres boş.": "This address is empty.",
     "Ana sayfa": "Home",
-    "Zahirin öteki yüzü. Sözü bilen girer.": "The other side of the visible. The word opens it.",
-    "Sözü bilen girer.": "The word opens it.",
     "Zahirin öteki yüzü. Burada söz az, satır uzun durur.": "The other side of the visible. Here the word is few and the line is long.",
-    "4 Aralık 2025": "4 December 2025",
-    "11 Şubat 2026": "11 February 2026",
-    "Söz": "Word",
-    "Gir": "Enter",
     "Zahirin öteki yüzü. Edebi ve uhrevi sahifeler.": "The other side of the visible. Literary and inward pages.",
-    "Ricatten, loş ışıktan ve bakışın sustuğu yerden.": "On retreat, dim light, and the place where the gaze goes quiet.",
-    "Bir alevin odayı değil, niyeti aydınlatması üzerine.": "On a flame that lights intention rather than the room.",
-    "Halvet’e dön": "Back to Halvet"
   };
 
   const textNodes = () => {
@@ -401,23 +392,4 @@
     canvas.remove();
   }
 
-  const gate = document.querySelector(".gate");
-  if (gate) {
-    const unlock = () => document.body.classList.add("open");
-    if (sessionStorage.getItem("halvet") === "open") unlock();
-    const form = gate.querySelector(":scope > form");
-    form?.addEventListener("submit", (event) => {
-      event.preventDefault();
-      const value = String(new FormData(form).get("key") || "").trim().toLocaleLowerCase("tr");
-      const err = gate.querySelector(".err");
-      if (value === "halvet" || value === "orion" || value === "delphinus") {
-        sessionStorage.setItem("halvet", "open");
-        unlock();
-      } else if (err) {
-        err.textContent = document.documentElement.lang === "en"
-          ? "That word does not open the door."
-          : "Bu söz kapıyı açmıyor.";
-      }
-    });
-  }
 })();
