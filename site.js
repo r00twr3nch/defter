@@ -4,7 +4,8 @@
   if (!fine) document.body.classList.add("touch");
 
   const dict = {
-    "Yazılım mühendisi, İzmir": "Software engineer, Izmir",
+    "Yazılım mühendisi": "Software engineer",
+    "Yapay zekâ mühendisliği ve bilgi güvenliği. Yaşar Üniversitesi Yazılım Mühendisliği mezunu. Gökyüzünde küçük bir yunus var; onu bulan içeri girer.": "AI engineering and information security. Software Engineering graduate, Yaşar University. There is a small dolphin in the sky. Whoever finds it steps inside.",
     "Yapay zekâ mühendisliği ve bilgi güvenliği. Yaşar Üniversitesi Yazılım Mühendisliği mezunu.": "AI engineering and information security. Software Engineering graduate, Yaşar University.",
     "Özgeçmiş": "Resume",
     "Yazılar": "Writing",
@@ -53,8 +54,8 @@
     "Açık kaynak projeler ve staj döneminde üretilen işler.": "Open-source projects and work from internships.",
     "Tek bir örnek duruyor. Yeni yazılar buraya gelecek.": "One sample remains. New essays will land here.",
     "Örnek sahife": "Sample page",
-    "Yazılım mühendisi. Yapay zekâ ve bilgi güvenliği. İzmir.": "Software engineer. AI and information security. Izmir.",
-    "2026’da Yaşar Üniversitesi İngilizce Yazılım Mühendisliği programından mezun oldum. Çalışmalarım yapay zekâ mühendisliği ve bilgi güvenliği üzerine. İzmir’de yaşıyorum.": "I graduated in 2026 from Yaşar University, Software Engineering (English). I work on AI engineering and information security, and I live in Izmir.",
+    "Yazılım mühendisi. Yapay zekâ ve bilgi güvenliği.": "Software engineer. AI and information security.",
+    "2026’da Yaşar Üniversitesi İngilizce Yazılım Mühendisliği programından mezun oldum. Çalışmalarımı yapay zekâ, backend geliştirme, bilgi güvenliği, DevSecOps ve tersine mühendislik alanlarında sürdürüyorum. Bir sistemi kurmak ile onu çözmeyi aynı işin iki ucu sayıyorum.": "I graduated in 2026 from Yaşar University, Software Engineering (English). I keep working across artificial intelligence, backend development, information security, DevSecOps, and reverse engineering. Building a system and taking it apart are two ends of the same job.",
     "İş": "Work",
     "Oca 2026 — Tem 2026": "Jan 2026 — Jul 2026",
     "Haz 2025 — Eyl 2025": "Jun 2025 — Sep 2025",
