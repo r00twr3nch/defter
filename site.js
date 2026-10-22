@@ -84,6 +84,7 @@
     "Sayfa yok.": "Page not found.",
     "Bu adres boş.": "This address is empty.",
     "Ana sayfa": "Home",
+    "sevda": "love",
     "Zahirin öteki yüzü. Burada söz az, satır uzun durur.": "The other side of the visible. Here the word is few and the line is long.",
     "Zahirin öteki yüzü. Edebi ve uhrevi sahifeler.": "The other side of the visible. Literary and inward pages.",
   };

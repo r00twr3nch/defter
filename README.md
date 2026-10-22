@@ -2,7 +2,7 @@
 
 A personal webpage for people who read by starlight.
 
-The front of the site is a résumé. The background is a night sky: constellations drift as you scroll, a meteor crosses now and then, and one small figure — Delphinus, the dolphin — is a door. Find it, and the page opens onto Halvet, a quieter literary room that is not listed in the navigation.
+The front of the site is a résumé. The background is a night sky: constellations drift as you scroll, a meteor crosses now and then, and one small figure — Delphinus, the dolphin — is a door. Find it, and the page opens onto Harâbât, a quieter literary room that is not listed in the navigation.
 
 **[yunusemredurak.com.tr](https://yunusemredurak.com.tr)**
 
@@ -21,7 +21,7 @@ index.html        the sky, and the résumé under it
 hakkinda.html     a longer about
 isler.html        selected work
 yazilar/          technical writing
-kenar/            Halvet — the literary room, reached through Delphinus
+kenar/            Harâbât — the literary room, reached through Delphinus
 ```
 
 ## Run it

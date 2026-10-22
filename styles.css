@@ -286,8 +286,9 @@ body.halvet .top, body.halvet footer { display: none; }
   font-size: clamp(1.35rem, 2.4vw, 1.8rem); line-height: 1.8;
 }
 .cell, .leaf { position: relative; z-index: 2; padding: 8vh 6vw 12vh; }
+.leaf { padding-inline: 2vw; }
 .divan-head, .leaf article {
-  width: min(58rem, 100%); margin-inline: auto; text-align: center;
+  width: min(76rem, 100%); margin-inline: auto; text-align: center;
   padding: 1.4rem 1.2rem 1.8rem;
   background: radial-gradient(ellipse at 50% 30%, rgba(4, 7, 13, .55), rgba(4, 7, 13, .18) 72%, transparent 100%);
 }
@@ -334,10 +335,43 @@ body.halvet .top, body.halvet footer { display: none; }
   margin: 0 0 1.25rem;
   font-family: var(--script); font-size: clamp(1.28rem, 2vw, 1.55rem); line-height: 1.85; color: #f3ead8;
 }
+.verse p.hat { font-family: "Levha", "Times New Roman", serif; font-weight: 500; }
 .verse blockquote {
   margin: 1.6rem auto; padding: 0; border: 0; max-width: 24rem;
   font-size: clamp(1.55rem, 2.6vw, 1.9rem); color: var(--gold);
 }
+.hat {
+  display: flex; flex-direction: column; align-items: stretch;
+  width: max-content; max-width: 100%;
+  margin: 2.2rem auto 0; padding: .85rem 1.5rem .7rem;
+  overflow: hidden;
+  direction: rtl;
+  font-family: "Levha", "Times New Roman", serif; font-weight: 500;
+  font-size: clamp(1.35rem, 2.1vw, 1.85rem); line-height: 1.9;
+  color: #f6edd8;
+  background:
+    radial-gradient(ellipse at 50% 42%, rgba(228, 194, 122, .07), transparent 68%),
+    linear-gradient(180deg, rgba(8, 12, 20, .2), rgba(8, 12, 20, .55));
+  border: 1px solid rgba(228, 194, 122, .34);
+  box-shadow:
+    inset 0 0 0 6px rgba(4, 7, 13, .55),
+    inset 0 0 0 7px rgba(228, 194, 122, .22),
+    0 18px 50px rgba(0, 0, 0, .28);
+  text-shadow: 0 0 22px rgba(4, 7, 13, .85);
+}
+.hat .misra { display: block; text-align: center; white-space: nowrap; }
+.hat .imza {
+  display: block; margin-top: .15rem;
+  text-align: right;
+  color: var(--gold);
+  font-weight: 400;
+  font-size: .78em;
+}
+@media (max-width: 860px) {
+  .hat { font-size: clamp(1.4rem, 5.4vw, 1.7rem); line-height: 2; }
+  .hat .misra { white-space: normal; }
+}
+.leaf .when { direction: rtl; font-family: "Levha", "Times New Roman", serif; font-size: 1.45rem; }
 
 footer {
   display: flex; justify-content: space-between; gap: 1rem;
