@@ -3,6 +3,85 @@
   const fine = matchMedia("(hover: hover) and (pointer: fine)").matches;
   if (!fine) document.body.classList.add("touch");
 
+  const latin = Array.from("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
+  const marks = Array.from("@#$%&*!?+-/=~^·<>[]{}");
+  const turk = Array.from("çğıöşüÇĞİÖŞÜ");
+  const glyph = () => {
+    const roll = Math.random();
+    const bag = roll < 0.02 ? turk : roll < 0.7 ? latin : marks;
+    return bag[Math.floor(Math.random() * bag.length)];
+  };
+  const reelOf = () => {
+    const words = new Set();
+    while (words.size < 99) {
+      const word = Array.from({ length: 5 }, glyph).join("");
+      if (word !== "Berna") words.add(word);
+    }
+    const reel = [...words];
+    reel.splice(Math.floor(Math.random() * (reel.length + 1)), 0, "Berna");
+    return reel;
+  };
+  const veilNames = (root) => {
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        const p = node.parentElement;
+        if (!p || ["SCRIPT", "STYLE"].includes(p.tagName)) return NodeFilter.FILTER_REJECT;
+        if (p.closest(".bozuk, .hat, .divan")) return NodeFilter.FILTER_REJECT;
+        if (!node.nodeValue.includes("Berna")) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach((node) => {
+      const text = node.nodeValue;
+      const frag = document.createDocumentFragment();
+      let last = 0;
+      for (const match of text.matchAll(/Berna/g)) {
+        if (match.index > last) frag.append(text.slice(last, match.index));
+        const word = match[0];
+        const hold = document.createElement("span");
+        hold.className = "bozuk";
+        hold.dataset.ad = word;
+        const quiet = document.createElement("span");
+        quiet.className = "sr";
+        quiet.textContent = word;
+        const measure = document.createElement("span");
+        measure.className = "olcu";
+        measure.setAttribute("aria-hidden", "true");
+        measure.textContent = word;
+        const face = document.createElement("span");
+        face.className = "yuz";
+        face.setAttribute("aria-hidden", "true");
+        face.textContent = word;
+        hold.append(quiet, measure, face);
+        frag.append(hold);
+        last = match.index + word.length;
+      }
+      if (last < text.length) frag.append(text.slice(last));
+      node.parentNode.replaceChild(frag, node);
+    });
+  };
+  const faultTheName = () => {
+    veilNames(document.body);
+    const holds = document.querySelectorAll(".bozuk");
+    if (!holds.length) return;
+    const reel = reelOf();
+    let index = 0;
+    const show = () => {
+      const word = reel[index % reel.length];
+      index += 1;
+      holds.forEach((hold) => {
+        const face = hold.querySelector(".yuz");
+        if (face) face.textContent = reduce ? "Berna" : word;
+      });
+    };
+    show();
+    if (reduce) return;
+    setInterval(show, 260);
+  };
+  faultTheName();
+
   const dict = {
     "Yazılım mühendisi": "Software engineer",
     "Yapay zekâ mühendisliği ve bilgi güvenliği. Yaşar Üniversitesi Yazılım Mühendisliği mezunu.": "AI engineering and information security. Software Engineering graduate, Yaşar University.",
@@ -95,6 +174,7 @@
         if (!node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
         const p = node.parentElement;
         if (!p || ["SCRIPT", "STYLE"].includes(p.tagName)) return NodeFilter.FILTER_REJECT;
+        if (p.closest(".bozuk")) return NodeFilter.FILTER_REJECT;
         return NodeFilter.FILTER_ACCEPT;
       }
     });
